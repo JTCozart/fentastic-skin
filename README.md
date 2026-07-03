@@ -33,7 +33,7 @@ Designed for use with the FEN family of add-ons (Fen Light, Red Light, The Gears
 
 ## Installation
 
-> **Required first:** this skin depends on the `script.fentastic.helper` add-on and is **version-locked** to `script.fentastic.helper-100.6.25g.zip`. Install that exact helper version **before** the skin, or it will not work.
+> **Required first:** this skin depends on the `script.fentastic.helper` add-on and is **version-locked** to [`script.fentastic.helper-100.6.25g.zip`](https://github.com/JTCozart/fentastic-skin/releases/latest). Install that exact helper version **before** the skin, or it will not work.
 
 ### Option A — Repository (recommended, enables auto-updates)
 
