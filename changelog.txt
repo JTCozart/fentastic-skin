@@ -4,6 +4,12 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.7[/B]
+- Docs: state the required, version-locked helper add-on
+  (script.fentastic.helper 100.6.25g) that must be installed first.
+- Landing page and README now identify the project as a fork and link upstream.
+- Release pipeline hardened (GitHub Pages auto-configuration).
+
 [B]v1.0.6[/B]
 - TV shows: thumbnail episode badge now shows UNWATCHED / total instead of
   watched / total, across all view types.
