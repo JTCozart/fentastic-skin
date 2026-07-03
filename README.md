@@ -5,7 +5,7 @@
 [![Kodi](https://img.shields.io/badge/Kodi-Omega%20(21%2B)-17B2E7?logo=kodi&logoColor=white)](https://kodi.tv)
 [![Release](https://img.shields.io/github/v/release/JTCozart/fentastic-skin?label=release)](https://github.com/JTCozart/fentastic-skin/releases/latest)
 
-FENtastic Plus is a modern, customizable Kodi skin — a modded version of the default **Estuary** skin. This repository is a **fork** maintained by [JTCozart](https://github.com/JTCozart), continuing the work of the original authors with ongoing UI/UX improvements and a proper release + auto-update pipeline.
+FENtastic Plus is a modern, customizable Kodi skin — a modded version of the default **Estuary** skin. This repository is a **fork of [Zaxxon709/fentasticplus](https://github.com/Zaxxon709/fentasticplus/)**, maintained by [JTCozart](https://github.com/JTCozart), continuing the work of the original authors with ongoing UI/UX improvements and a proper release + auto-update pipeline.
 
 > This is a community fork. It is **not** affiliated with or endorsed by the original authors. See [Credits & Attribution](#credits--attribution).
 
@@ -100,7 +100,7 @@ In the spirit of honest disclosure: parts of this fork — tooling, docs, the re
 
 ## Credits & Attribution
 
-- **Original skin:** FENtastic / FENtastic Plus by **Ivar Brandt** and **Zaxxon709** (an Estuary MOD).
+- **Original skin:** [FENtastic Plus](https://github.com/Zaxxon709/fentasticplus/) by **Ivar Brandt** and **Zaxxon709** (an Estuary MOD).
 - **Based on:** the default **Estuary** skin by Team Kodi.
 - **This fork:** maintained by **JTCozart**.
 

@@ -35,6 +35,11 @@ jobs:
       - name: Build site and Kodi repository
         run: python3 .github/scripts/build_repo.py
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
