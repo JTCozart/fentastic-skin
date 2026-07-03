@@ -916,16 +916,8 @@
 									<top>-9</top>
 									<width>110</width>
 									<height>110</height>
-									<texture>$INFO[ListItem.Art(thumb)]</texture>
+									<texture colordiffuse="focused_text">$INFO[ListItem.Art(thumb)]</texture>
 									<visible>Skin.HasSetting(NoIconMainMenu) + !ControlGroup(700).HasFocus</visible>
-								</control>
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>95</width>
-									<height>95</height>
-									<texture colordiffuse="menu_icon_highlight">masks/icon_mainmenu.png</texture>
-									<visible>Skin.HasSetting(NoIconMainMenu) + !Skin.HasSetting(NoHighlightMainMenu) + !String.IsEqual(Skin.String(CurrentSkinColor),Classic FENtastic) + !ControlGroup(700).HasFocus</visible>
 								</control>
 								<!-- Focused Label with Icons Enabled -->
 								<control type="label">
