@@ -63,7 +63,7 @@
 							<align>right</align>
 							<aligny>center</aligny>
 							<font>font32_title</font>
-							<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							<visible>String.IsEqual(ListItem.DBtype,season)</visible>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -77,7 +77,7 @@
 								<align>right</align>
 								<aligny>center</aligny>
 								<font>font32_title</font>
-								<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+								<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							</control>
 							<control type="label">
 								<width>120</width>
@@ -133,7 +133,7 @@
 							<aligny>center</aligny>
 							<font>font32</font>
 							<textcolor>unfocused_text</textcolor>
-							<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							<visible>String.IsEqual(ListItem.DBtype,season)</visible>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -147,7 +147,7 @@
 								<align>right</align>
 								<aligny>center</aligny>
 								<textcolor>unfocused_text</textcolor>
-								<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+								<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							</control>
 							<control type="label">
 								<width>100</width>

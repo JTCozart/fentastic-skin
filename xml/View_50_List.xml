@@ -180,7 +180,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<font>font32</font>
-						<label>[B]$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,][/B]</label>
+						<label>[B]$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,][/B]</label>
 						<animation effect="fade" start="70" end="100" time="300" reversible="false">Focus</animation>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
@@ -234,7 +234,7 @@
 						<aligny>center</aligny>
 						<font>font27</font>
 						<textcolor>unfocused_text</textcolor>
-						<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+						<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 					<control type="image">
