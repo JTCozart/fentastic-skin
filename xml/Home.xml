@@ -938,7 +938,7 @@
 									<font>font37</font>
 									<label>$INFO[ListItem.Label]</label>
 									<shadowcolor>text_shadow</shadowcolor>
-									<textcolor>menu_focused_text</textcolor>
+									<textcolor>focused_text</textcolor>
 									<visible>Skin.HasSetting(NoIconMainMenu) + !ControlGroup(700).HasFocus</visible>
 								</control>
 								<!-- Focused Label with Icons Disabled -->
