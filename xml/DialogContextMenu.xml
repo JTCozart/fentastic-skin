@@ -16,7 +16,7 @@
 				<left>-225</left>
 				<width>896</width>
 				<height>70</height>
-				<font>font36_title</font>
+				<font>font32_title</font>
 				<textcolor>unfocused_text</textcolor>
 				<align>center</align>
 				<label>$VAR[ContextMenuTitleVar]</label>

@@ -163,12 +163,12 @@
 					</include>
 				</control>
 				<!-- CUSTOM 5 -->
-				<control type="group" id="27000">
+				<control type="group" id="27500">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),custom5)</visible>
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="custom5"/>
 					</include>
-					<control type="grouplist" id="27001">
+					<control type="grouplist" id="27501">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>27099</pagecontrol>
 						<include content="Custom5Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom5Button)"/>
@@ -924,7 +924,7 @@
 									<top>0</top>
 									<width>95</width>
 									<height>95</height>
-									<texture colordiffuse="51FFFFFF">masks/icon_mainmenu.png</texture>
+									<texture colordiffuse="menu_icon_highlight">masks/icon_mainmenu.png</texture>
 									<visible>Skin.HasSetting(NoIconMainMenu) + !Skin.HasSetting(NoHighlightMainMenu) + !String.IsEqual(Skin.String(CurrentSkinColor),Classic FENtastic) + !ControlGroup(700).HasFocus</visible>
 								</control>
 								<!-- Focused Label with Icons Enabled -->
@@ -938,7 +938,7 @@
 									<font>font37</font>
 									<label>$INFO[ListItem.Label]</label>
 									<shadowcolor>text_shadow</shadowcolor>
-									<textcolor>FFFFFFFF</textcolor>
+									<textcolor>menu_focused_text</textcolor>
 									<visible>Skin.HasSetting(NoIconMainMenu) + !ControlGroup(700).HasFocus</visible>
 								</control>
 								<!-- Focused Label with Icons Disabled -->
@@ -952,7 +952,7 @@
 									<font>font45_title</font>
 									<label>$INFO[ListItem.Label]</label>
 									<shadowcolor>text_shadow</shadowcolor>
-									<textcolor>FFFFFFFF</textcolor>
+									<textcolor>menu_focused_text</textcolor>
 									<visible>!Skin.HasSetting(NoIconMainMenu) + !ControlGroup(700).HasFocus</visible>
 								</control>
 								<!-- Top bar fallback icon -->
@@ -961,7 +961,7 @@
 									<top>1</top>
 									<width>95</width>
 									<height>95</height>
-									<texture colordiffuse="44FFFFFF">$INFO[ListItem.Art(thumb)]</texture>
+									<texture colordiffuse="menu_icon_dim">$INFO[ListItem.Art(thumb)]</texture>
 									<visible>Skin.HasSetting(NoIconMainMenu) + ControlGroup(700).HasFocus</visible>
 								</control>
 								<!-- Top bar fallback label -->
@@ -989,7 +989,7 @@
 									<width>315</width>
 									<aligny>center</aligny>
 									<font>font45</font>
-									<textcolor>darkgrey</textcolor>
+									<textcolor>grey</textcolor>
 									<label>$INFO[ListItem.Label]</label>
 									<shadowcolor>text_shadow</shadowcolor>
 									<visible>ControlGroup(700).HasFocus</visible>
@@ -1020,7 +1020,7 @@
 									<top>1</top>
 									<width>95</width>
 									<height>95</height>
-									<texture colordiffuse="44FFFFFF">$INFO[ListItem.Art(thumb)]</texture>
+									<texture colordiffuse="menu_icon_dim">$INFO[ListItem.Art(thumb)]</texture>
 									<visible>Skin.HasSetting(NoIconMainMenu)</visible>
 								</control>
 								<control type="label">
@@ -1046,7 +1046,7 @@
 									<width>315</width>
 									<aligny>center</aligny>
 									<font>font45</font>
-									<textcolor>darkgrey</textcolor>
+									<textcolor>grey</textcolor>
 									<label>$INFO[ListItem.Label]</label>
 									<shadowcolor>text_shadow</shadowcolor>
 								</control>
