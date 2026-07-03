@@ -80,9 +80,11 @@ Releases are fully automated via GitHub Actions (`.github/workflows/release.yml`
 2. Commit, then tag and push:
 
    ```bash
-   git tag v$(grep -oP 'version="\K[^"]+' addon.xml | head -1)
+   git tag v$(grep -oP 'id="skin.fentastic" version="\K[^"]+' addon.xml)
    git push origin --tags
    ```
+
+   Versions use `major.minor.build` (e.g. `1.0.6`).
 
 3. The workflow packages the skin, (re)builds the Kodi repository index (`addons.xml` + `.md5`), attaches the zips to a GitHub Release, and deploys the landing page + repo to GitHub Pages.
 
