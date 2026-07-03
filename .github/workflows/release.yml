@@ -1,14 +1,20 @@
 name: Package and Release
 
-# Package the skin, build the Kodi repository, publish a GitHub Release,
-# and deploy the landing page + repository to GitHub Pages.
+# Two things happen here:
+#   * On a version tag (v*): package the skin + repository add-on and publish a
+#     GitHub Release with the zips attached.
+#   * On push to the default branch (or manual run): build the landing page +
+#     Kodi repository and deploy them to GitHub Pages.
 #
-# Trigger by pushing a version tag, e.g.:
-#   git tag v100.0.30j && git push origin v100.0.30j
-# or run manually from the Actions tab (Pages-only deploy, no Release).
+# Pages is deployed from the default branch (not the tag) so it satisfies the
+# github-pages environment's default "deploy from default branch" protection
+# rule. A normal release = commit the version bump to master, then push the tag;
+# the master push deploys Pages and the tag push cuts the Release.
 
 on:
   push:
+    branches:
+      - master
     tags:
       - "v*"
   workflow_dispatch:
@@ -36,11 +42,13 @@ jobs:
         run: python3 .github/scripts/build_repo.py
 
       - name: Configure GitHub Pages
+        if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
       - name: Upload GitHub Pages artifact
+        if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
@@ -56,6 +64,9 @@ jobs:
 
   deploy:
     needs: build
+    # Only deploy Pages from the default branch (or a manual run) - tags are
+    # blocked by the github-pages environment protection rule.
+    if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
