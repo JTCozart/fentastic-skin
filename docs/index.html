@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FENtastic Plus - Kodi Skin</title>
+<meta name="description" content="FENtastic Plus - a modern, customizable Kodi skin. Community fork with a proper release pipeline and auto-updates." />
+<meta property="og:title" content="FENtastic Plus - Kodi Skin" />
+<meta property="og:description" content="A modern, customizable Kodi skin. Community fork with auto-updates." />
+<meta property="og:image" content="https://raw.githubusercontent.com/JTCozart/fentastic-skin/master/resources/fanart.jpg" />
+<link rel="icon" href="https://raw.githubusercontent.com/JTCozart/fentastic-skin/master/resources/icon.png" />
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #21262d;
+    --text: #e6edf3; --muted: #9198a1; --accent: #8a2be2; --accent2: #17b2e7;
+    --code: #010409;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.65;
+  }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .hero {
+    position: relative; text-align: center; padding: 90px 20px 70px;
+    background:
+      linear-gradient(180deg, rgba(13,17,23,.72) 0%, rgba(13,17,23,.94) 70%, var(--bg) 100%),
+      url("https://raw.githubusercontent.com/JTCozart/fentastic-skin/master/resources/fanart.jpg") center/cover no-repeat;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero img.icon { width: 132px; height: 132px; border-radius: 26px; box-shadow: 0 12px 40px rgba(0,0,0,.6); }
+  .hero h1 { font-size: 2.9rem; margin: 22px 0 6px; letter-spacing: -.5px; }
+  .hero p.tag { font-size: 1.2rem; color: var(--muted); margin: 0 auto; max-width: 620px; }
+  .badges { margin: 22px 0 6px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .badges img { height: 22px; }
+  .cta { margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 24px; border-radius: 10px; font-weight: 600;
+    border: 1px solid var(--border); color: var(--text); background: var(--panel);
+  }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  h2 { font-size: 1.9rem; margin-top: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .96rem; }
+  ol.steps { counter-reset: step; list-style: none; padding: 0; }
+  ol.steps > li {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 20px 18px 62px; position: relative; margin-bottom: 14px;
+  }
+  ol.steps > li::before {
+    counter-increment: step; content: counter(step);
+    position: absolute; left: 18px; top: 16px; width: 30px; height: 30px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff;
+    border-radius: 50%; display: grid; place-items: center; font-weight: 700;
+  }
+  code, .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--code); border: 1px solid var(--border); border-radius: 6px;
+    padding: 2px 7px; font-size: .9em; word-break: break-all;
+  }
+  .copybox {
+    display: flex; align-items: center; gap: 10px; background: var(--code);
+    border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 10px 0;
+  }
+  .copybox code { background: none; border: none; padding: 0; flex: 1; }
+  .note { color: var(--muted); font-size: .95rem; }
+  .tabs { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: .92rem; text-align: center; }
+  .disclosure {
+    background: linear-gradient(135deg, rgba(138,43,226,.12), rgba(23,178,231,.10));
+    border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="icon" src="https://raw.githubusercontent.com/JTCozart/fentastic-skin/master/resources/icon.png" alt="FENtastic Plus icon" />
+  <h1>FENtastic Plus</h1>
+  <p class="tag">A modern, customizable Kodi skin - now with a proper release pipeline and one-click auto-updates.</p>
+  <div class="badges">
+    <a href="#ai-transparency"><img src="https://img.shields.io/badge/AI%20honesty-Claude--assisted-8A2BE2" alt="AI honesty" /></a>
+    <img src="https://img.shields.io/badge/license-CC%20BY--SA%204.0%20%2B%20GPL%20v2-blue" alt="License" />
+    <img src="https://img.shields.io/badge/Kodi-Omega%20(21%2B)-17B2E7" alt="Kodi Omega" />
+    <img src="https://img.shields.io/github/v/release/JTCozart/fentastic-skin?label=release" alt="Latest release" />
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="#install">Install</a>
+    <a class="btn" href="https://github.com/JTCozart/fentastic-skin">View on GitHub</a>
+    <a class="btn" href="https://github.com/JTCozart/fentastic-skin/releases/latest">Download</a>
+  </div>
+</header>
+
+<main>
+<section id="features">
+  <div class="wrap">
+    <h2>Features</h2>
+    <div class="grid">
+      <div class="card"><h3>Modern UI</h3><p>A redesigned experience built on Kodi's Estuary skin.</p></div>
+      <div class="card"><h3>Extra viewtypes</h3><p>"WideWall" and "WideInfoWall" plus tuned built-in views.</p></div>
+      <div class="card"><h3>Customizable widgets</h3><p>Movie, TV-show and episode widgets, incl. stacked category widgets.</p></div>
+      <div class="card"><h3>Custom main menu</h3><p>Configurable movie and show menu items and paths.</p></div>
+      <div class="card"><h3>Ratings &amp; InfoPanel</h3><p>Ratings for movies, shows, seasons and episodes, with an optional InfoPanel.</p></div>
+      <div class="card"><h3>Multi-search</h3><p>Search several categories at once, including Trakt lists.</p></div>
+      <div class="card"><h3>Unwatched progress</h3><p>TV thumbnails show unwatched / total episodes at a glance.</p></div>
+      <div class="card"><h3>Auto-updates</h3><p>Install the repository once and stay up to date automatically.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">Designed for use with the FEN family of add-ons (Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH).</p>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+
+    <h3>Option A - Repository (recommended, auto-updates)</h3>
+    <ol class="steps">
+      <li>In Kodi go to <strong>Settings &rarr; File manager &rarr; Add source</strong> and enter this URL:
+        <div class="copybox"><code>https://jtcozart.github.io/fentastic-skin/repo/</code></div>
+        Name it <code>FENtastic Plus</code>.
+      </li>
+      <li><strong>Settings &rarr; Add-ons &rarr; Install from zip file &rarr;</strong> <code>FENtastic Plus</code> &rarr; <code>repository.fentastic</code> &rarr; <code>repository.fentastic-x.x.x.zip</code>.</li>
+      <li><strong>Install from repository &rarr; FENtastic Plus Repository &rarr; Look and feel &rarr; Skin &rarr; FENtastic Plus &rarr; Install.</strong></li>
+    </ol>
+    <p class="note">Kodi will now keep the skin updated automatically whenever a new version is released.</p>
+
+    <h3 style="margin-top:34px">Option B - Direct zip (manual)</h3>
+    <ol class="steps">
+      <li>Download the latest <code>skin.fentastic-x.x.x.zip</code> from the
+        <a href="https://github.com/JTCozart/fentastic-skin/releases/latest">Releases page</a>.</li>
+      <li>In Kodi: <strong>Settings &rarr; Add-ons &rarr; Install from zip file</strong> and select the downloaded file.</li>
+    </ol>
+    <p class="note">If Kodi blocks the install, enable <strong>Settings &rarr; System &rarr; Add-ons &rarr; Unknown sources</strong>. This method does not auto-update.</p>
+  </div>
+</section>
+
+<section id="ai-transparency">
+  <div class="wrap">
+    <h2>AI Transparency</h2>
+    <div class="disclosure">
+      <p style="margin-top:0">In the spirit of honest disclosure: parts of this fork - tooling, docs, the release
+      pipeline and some UI/UX changes - were developed with the help of an AI coding assistant
+      (<a href="https://www.anthropic.com/claude-code">Claude</a>). Every change is reviewed by a human
+      before it ships. This badge exists so users and contributors know exactly how the work was made.</p>
+    </div>
+  </div>
+</section>
+
+<section id="credits">
+  <div class="wrap">
+    <h2>Credits &amp; License</h2>
+    <p>
+      <strong>Original skin:</strong> FENtastic / FENtastic Plus by <strong>Ivar Brandt</strong> and <strong>Zaxxon709</strong> (an Estuary MOD).<br />
+      <strong>Based on:</strong> the default <strong>Estuary</strong> skin by Team Kodi.<br />
+      <strong>This fork:</strong> maintained by <strong>JTCozart</strong>.
+    </p>
+    <p class="note">
+      Artwork is licensed under
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>;
+      code under <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL-2.0</a>.
+      This fork contains modifications and is not affiliated with, or endorsed by, the original authors or Team Kodi.
+    </p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>FENtastic Plus - community fork &middot;
+      <a href="https://github.com/JTCozart/fentastic-skin">GitHub</a> &middot;
+      <a href="https://github.com/JTCozart/fentastic-skin/issues">Issues</a> &middot;
+      <a href="https://github.com/JTCozart/fentastic-skin/releases">Releases</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

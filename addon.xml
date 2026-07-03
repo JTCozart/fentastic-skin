@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="skin.fentastic" version="100.0.30j" name="FENtastic Plus"
-	provider-name="Ivar Brandt, Zaxxon709">
+	provider-name="JTCozart (fork of Ivar Brandt, Zaxxon709)">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />
 		<import addon="script.fentastic.helper" version="100.6.25g" />
@@ -18,20 +18,17 @@
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
-		<forum>http://forum.kodi.tv/</forum>
-		<source>https://github.com/xbmc/skin.estuary/</source>
+		<forum>https://github.com/JTCozart/fentastic-skin/issues</forum>
+		<source>https://github.com/JTCozart/fentastic-skin</source>
 		<assets>
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.jpg</fanart>
-			<screenshot>resources/images/customizable_widgets.jpg</screenshot>
-			<screenshot>resources/images/infopanel.jpg</screenshot>
-			<screenshot>resources/images/viewtypes1.jpg</screenshot>
 		</assets>
-		<summary lang="en_GB">FENtastic Plus skin by Ivar Brandt, Zaxxon709 (Estuary MOD). Based on FENtastic v1.0.25</summary>
-		<summary lang="en_NZ">FENtastic Plus skin by Ivar Brandt, Zaxxon709 (Estuary MOD). Based on FENtastic v1.0.25</summary>
-		<summary lang="en_US">FENtastic Plus skin by Ivar Brandt, Zaxxon709 (Estuary MOD). Based on FENtastic v1.0.25</summary>
-		<description lang="en_GB">FENtastic Plus is a modified version of the default Estuary skin for Kodi. It is intended for use with Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH.[CR][CR]See [B]CHANGELOG[/B] located in Skin settings » Extra info for latest changes.</description>
-		<description lang="en_NZ">FENtastic Plus is a modified version of the default Estuary skin for Kodi. It is intended for use with Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH.[CR][CR]See [B]CHANGELOG[/B] located in Skin settings » Extra info for latest changes.</description>
-		<description lang="en_US">FENtastic Plus is a modified version of the default Estuary skin for Kodi. It is intended for use with Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH.[CR][CR]See [B]CHANGELOG[/B] located in Skin settings » Extra info for latest changes.</description>
+		<summary lang="en_GB">FENtastic Plus by Ivar Brandt, Zaxxon709 (Estuary MOD). Community fork maintained by JTCozart.</summary>
+		<summary lang="en_NZ">FENtastic Plus by Ivar Brandt, Zaxxon709 (Estuary MOD). Community fork maintained by JTCozart.</summary>
+		<summary lang="en_US">FENtastic Plus by Ivar Brandt, Zaxxon709 (Estuary MOD). Community fork maintained by JTCozart.</summary>
+		<description lang="en_GB">FENtastic Plus is a community fork (maintained by JTCozart) of the FENtastic Plus skin by Ivar Brandt and Zaxxon709 - itself a modified version of the default Estuary skin for Kodi. It is intended for use with Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH.[CR][CR]See [B]CHANGELOG[/B] located in Skin settings » Extra info for latest changes.</description>
+		<description lang="en_NZ">FENtastic Plus is a community fork (maintained by JTCozart) of the FENtastic Plus skin by Ivar Brandt and Zaxxon709 - itself a modified version of the default Estuary skin for Kodi. It is intended for use with Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH.[CR][CR]See [B]CHANGELOG[/B] located in Skin settings » Extra info for latest changes.</description>
+		<description lang="en_US">FENtastic Plus is a community fork (maintained by JTCozart) of the FENtastic Plus skin by Ivar Brandt and Zaxxon709 - itself a modified version of the default Estuary skin for Kodi. It is intended for use with Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH.[CR][CR]See [B]CHANGELOG[/B] located in Skin settings » Extra info for latest changes.</description>
 	</extension>
 </addon>

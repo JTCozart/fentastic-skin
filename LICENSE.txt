@@ -1,10 +1,35 @@
-FENtastic by Ivar Brandt
+FENtastic Plus - License & Attribution Notice
+=============================================
 
-FENtastic Artwork is licensed under a
-Creative Commons Attribution-ShareAlike 4.0 Unported License.
-You can find the license details here: <http://creativecommons.org/licenses/by-sa/4.0/>.
+This project is a dual-licensed Kodi skin.
 
-FENtastic code work is licensed under
-GNU General Public License (GPL), Version 2.0
-You can find the license details here: <https://www.gnu.org/licenses/gpl-2.0>.
+  * Artwork  : Creative Commons Attribution-ShareAlike 4.0 International
+               (CC BY-SA 4.0) - see LICENSE-CC-BY-SA-4.0.txt
+               <https://creativecommons.org/licenses/by-sa/4.0/>
 
+  * Code     : GNU General Public License, Version 2.0 (GPL-2.0)
+               - see COPYING
+               <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html>
+
+
+Attribution
+-----------
+  * Original skin : FENtastic / FENtastic Plus by Ivar Brandt and Zaxxon709
+                    (an Estuary MOD).
+  * Based on      : the default "Estuary" skin by Team Kodi.
+  * This fork     : maintained by JTCozart
+                    <https://github.com/JTCozart/fentastic-skin>.
+
+
+Modifications
+-------------
+This repository is a fork and contains modifications to the original work,
+including UI/UX changes, TV-show unwatched-count display changes, an automated
+release pipeline, a Kodi repository add-on, and a project landing page.
+Changes made in this fork begin in 2026 and continue in the commit history of
+the repository above.
+
+As required by CC BY-SA 4.0 and GPL-2.0, the original authors are credited,
+changes are indicated, this notice and the accompanying license texts are
+retained, and derivative works are distributed under the same licenses. This
+fork is not affiliated with, nor endorsed by, the original authors or Team Kodi.

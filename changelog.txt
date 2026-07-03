@@ -1,0 +1,16 @@
+[B]FENtastic Plus - Changelog[/B]
+
+This is a community fork maintained by JTCozart, based on FENtastic Plus by
+Ivar Brandt and Zaxxon709 (an Estuary MOD).
+
+[B]Fork changes[/B]
+- TV shows: thumbnail episode badge now shows UNWATCHED / total instead of
+  watched / total, across all view types.
+- Merged latest upstream changes into the fork.
+- Context menu, home, search results, and various dialogs: UI/UX refinements.
+- Project housekeeping: new README, automated GitHub Actions release pipeline,
+  Kodi repository add-on for auto-updates, and a project landing page.
+
+[B]Upstream[/B]
+For the history of the original skin, see the in-skin CHANGELOG and the
+original project. This file tracks changes made in this fork going forward.

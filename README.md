@@ -1,124 +1,112 @@
-# FENtastic Skin for Kodi Omega
+# FENtastic Plus (Kodi Skin)
 
-**IMPORTANT INFO:** I am currently not accepting **ANY** feature requests.
+[![AI Honesty](https://img.shields.io/badge/AI%20honesty-Claude--assisted-8A2BE2?logo=anthropic&logoColor=white)](#ai-transparency)
+[![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20%2B%20GPL%20v2-blue.svg)](LICENSE.txt)
+[![Kodi](https://img.shields.io/badge/Kodi-Omega%20(21%2B)-17B2E7?logo=kodi&logoColor=white)](https://kodi.tv)
+[![Release](https://img.shields.io/github/v/release/JTCozart/fentastic-skin?label=release)](https://github.com/JTCozart/fentastic-skin/releases/latest)
 
-FENtastic is a modded version of the default Estuary skin, specifically designed for FEN users. It includes several new features and adjustments to pre-existing views, a new UI, viewtypes, customizable widgets, and a new default colors theme.
+FENtastic Plus is a modern, customizable Kodi skin — a modded version of the default **Estuary** skin. This repository is a **fork** maintained by [JTCozart](https://github.com/JTCozart), continuing the work of the original authors with ongoing UI/UX improvements and a proper release + auto-update pipeline.
 
-Below you'll find some information about the [differences](#fentastic-vs-default-estuary-skin) between Estuary and FENtastic along with some screenshots and a detailed [setup guide](#setup-guide) of the skin.
+> This is a community fork. It is **not** affiliated with or endorsed by the original authors. See [Credits & Attribution](#credits--attribution).
 
+- **Landing page & install guide:** https://jtcozart.github.io/fentastic-skin/
+- **Downloads:** [Releases](https://github.com/JTCozart/fentastic-skin/releases/latest)
+- **Issues / requests:** [GitHub Issues](https://github.com/JTCozart/fentastic-skin/issues)
 
-## FENtastic vs Default Estuary Skin
-
-Here are some of the key differences between FENtastic and the default Estuary skin.
-
-* **New UI Experience**: FENtastic introduces an updated modern UI.
-
-  ![Viewtypes Widelist](resources/images/viewtypes1.jpg)
-
-  ![Viewtypes List](resources/images/viewtypes2.jpg)
-
-  ![Viewtypes Widelist](resources/images/viewtypes3.jpg)
-
-  ![Viewtypes List](resources/images/viewtypes4.jpg)
-
-* **New viewtypes**: FENtastic introduces "WideInfoWall" and "WideWall" viewtypes.
-
-  ![Viewtypes WideInfoWall](resources/images/viewtypes.jpg)
-
-* **Customizable Widgets**: FENtastic allows you to customize widgets and category widgets for movies, tvshows, and episodes.
-
-  ![Customizable Widgets](resources/images/customizable_widgets.jpg)
-
-* **Custom Stacked Widgets**: FENtastic introduces stacked widgets for movies and tvshows.
-
-  ![Stacked Widgets](resources/images/stacked_widgets.jpg)
-
-* **Custom Search Window**: FENtastic introduces a search window to simultaneously search multiple categories including TRAKT Lists.
-
-  ![Search Window](resources/images/search_window.jpg)
-
-  ![Search Window](resources/images/search_window1.jpg)
-
-* **InfoPanel with Ratings**: FENtastic introduces a new InfoPanel with optional displaying of ratings for widgets. The ratings can be dislayed in the InfoPanel, widget labels, or both.
-
-  ![InfoPanel](resources/images/infopanel.jpg)
+---
 
 ## Features
-* NEW UI experience
-* 2 NEW viewtypes ("WideWall" and "WideInfoWall")
-* Plenty of adjustments to pre-existing views
-* Customizable movie and show main menu items
-* Customizable widgets and category widgets for movies, tvshows, and episodes
-* Custom stacked widgets for movies, tvshows, and episodes
-* Ratings displayed for movies, tvshows, seasons, and episodes
-* New InfoPanel for widgets
-* New custom search window
-* Progress displayed for movies, tvshows, seasons and episodes
-* Custom Search options from Home window
 
+- Modern, redesigned UI experience
+- Extra viewtypes ("WideWall" and "WideInfoWall") plus adjustments to the built-in views
+- Customizable movie and show main-menu items
+- Customizable widgets and category widgets for movies, tvshows, and episodes
+- Custom stacked widgets for movies, tvshows, and episodes
+- Ratings displayed for movies, tvshows, seasons, and episodes
+- InfoPanel for widgets, with optional ratings
+- Custom multi-category search window (incl. Trakt lists)
+- Watched/unwatched progress shown for movies, tvshows, seasons, and episodes
 
-## Download and installation
+Designed for use with the FEN family of add-ons (Fen Light, Red Light, The Gears, Umbrella, POV, TMDbH).
 
-To download this skin, go to Settings » File Manager » at the bottom click "Add Source" » then add the source below:
+---
 
-Kodi File Manager Source: [https://ivarbrandt.github.io/repository.ivarbrandt/](https://ivarbrandt.github.io/repository.ivarbrandt/)
+## Installation
 
-![Add Source](resources/images/add_source.jpg)
+### Option A — Repository (recommended, enables auto-updates)
 
-After adding the source go back to the Settings page » click Addons » Install from zip file » click the source you just added and click "repository.ivarbrandt-1.0.1.zip". This will install my Kodi repo.
+Installing the repository add-on lets Kodi keep the skin up to date automatically.
 
-![Install from zip](resources/images/install_from_zip.jpg)
+1. In Kodi: **Settings → File manager → Add source**, and enter:
 
-Now click Install from repository » Find and click ivarbrandt's Repository » Look and feel » Skin » FENtastic » click to install it.
+   ```
+   https://jtcozart.github.io/fentastic-skin/repo/
+   ```
 
-![Addon Info](resources/images/addon_info.jpg)
+   Give it a name such as `FENtastic Plus`.
+2. **Settings → Add-ons → Install from zip file →** `FENtastic Plus` → `repository.fentastic` → `repository.fentastic-x.x.x.zip`.
+3. **Install from repository → FENtastic Plus Repository → Look and feel → Skin → FENtastic Plus → Install.**
 
-On FIRST install go to Settings » Interface » in the Skin section click Configure skin... » Extra info » Setup Guide. Here you will find some tips on setting up your main menu paths and widgets.
+Kodi will now auto-update the skin whenever a new version is published.
 
-   ![Setup Guide](resources/images/setup_guide.jpg)
+### Option B — Direct zip (manual, no auto-updates)
 
-I have also included a step by step Setup Guide below.
+1. Download the latest `skin.fentastic-x.x.x.zip` from the [Releases page](https://github.com/JTCozart/fentastic-skin/releases/latest).
+2. In Kodi: **Settings → Add-ons → Install from zip file** and select the downloaded file.
+
+> If Kodi blocks the install, enable **Settings → System → Add-ons → Unknown sources**.
+
+---
 
 ## Setup Guide
 
-On first install, the home screen should be empty. This means that the Movie and Show sections should be missing from the main menu on the left.
+On first install the home screen is intentionally empty — the Movie and Show sections are hidden until you assign menu paths.
 
-![Empty Home Screen](resources/images/empty_home_screen.jpg)
+1. **Settings → Interface → Skin → Configure skin… → Main menu items.**
+2. Toggle a section (e.g. Movies/Shows) on. Note: a section stays hidden until you set its **main menu path**.
+3. Click **Set main menu path** and choose any path within FEN (for example your Trakt collection).
+4. Click **Set widgets** to configure up to 10 movie and 10 TV-show widgets. Each widget can have a label and display type (Poster, Landscape, LandscapeInfo, Category). Category widgets can be set up as stacked widgets.
+5. To rearrange, rename, remake, change display type, or remove a widget, click it and pick from the pop-up options. You can reconfigure as often as you like.
 
-To set up the widgets, follow these steps:
+A condensed version of this guide is also available in-skin under **Configure skin… → Extra info → Setup Guide**.
 
-1. From the home screen go to Settings » Interface » in the Skin section click Configure skin... . Here you'll see a group of menu items on the left. Navigate to Main menu items.
+---
 
-   ![Step 1](resources/images/step_1.jpg)
+## Building / Releasing (maintainers)
 
-2. Click a menu item to toggle the display of a section on and off. This will show or hide the section on the home screen.
+Releases are fully automated via GitHub Actions (`.github/workflows/release.yml`):
 
-   **NOTE:** Even if you have the Movie/Show section toggled on, you won't see them on the home screen until you set a main menu path for them.
+1. Bump `version` in [`addon.xml`](addon.xml) (and add a `changelog.txt` entry).
+2. Commit, then tag and push:
 
-   Toggle the Movie/Show section to 'on'. You'll see a couple of menu items drop down.
+   ```bash
+   git tag v$(grep -oP 'version="\K[^"]+' addon.xml | head -1)
+   git push origin --tags
+   ```
 
-   ![Step 2](resources/images/step_2.jpg)
+3. The workflow packages the skin, (re)builds the Kodi repository index (`addons.xml` + `.md5`), attaches the zips to a GitHub Release, and deploys the landing page + repo to GitHub Pages.
 
-3. To set up the main menu path, click on "Set main menu path." You can set this to whatever path you like within FEN. For example, you might set it to your Trakt movie/tvshow collection.
+**One-time setup:** in the repo settings, set **Pages → Source → GitHub Actions**.
 
-   ![Step 3](resources/images/step_3.jpg)
+---
 
-4. To set up the movie/tvshow widgets, click on "Set widgets." You can configure up to 10 movie and 10 TV show widgets. After choosing a path, you'll have the option to set the label and display type (Poster, Landscape, LandscapeInfo, and Category) for each widget. If you choose the Category display type, you'll have the option to set it up as a stacked widget. After that, you can choose the display type for the stacked widget as well.
+## AI Transparency
 
-   ![Step 4](resources/images/step_4.jpg)
+In the spirit of honest disclosure: parts of this fork — tooling, docs, the release pipeline, and some UI/UX changes — were developed with the assistance of an AI coding assistant ([Claude](https://www.anthropic.com/claude-code)). All changes are human-reviewed before release. This badge is here so users and contributors know exactly how the work was made.
 
-5. If you would like to rearrange, rename, remake, change display type, or remove a widget after you have set it up, click the widget. You'll see a list of options pop up. Click the desired option. You can reconfigure your widgets as many times as you'd like. You can also rename, remake, or remove the main menu items.
+---
 
-   ![Step 5](resources/images/step_5.jpg)
+## Credits & Attribution
 
-<!-- ## Rules for Reporting Issues -->
+- **Original skin:** FENtastic / FENtastic Plus by **Ivar Brandt** and **Zaxxon709** (an Estuary MOD).
+- **Based on:** the default **Estuary** skin by Team Kodi.
+- **This fork:** maintained by **JTCozart**.
 
-<!-- If you encounter any issues while using FENtastic, please follow these guidelines before opening an Issue:
+Attribution is required by the license and is retained here and in [`addon.xml`](addon.xml).
 
-- Read the **CHANGELOG**. As new updates get released features are added, changed, modified or removed. *Before opening an Issue* related to this make sure you read the changelog (located at the bottom of Skin settings in Extra info) as it will contain information for all the changes made to each update. It is also a good way to stay current with what is new with the skin.
-- **Pre-made builds** of any kind are *not supported*. If you installed someone else's build, you need to go to them to troubleshoot issues. These builds often contain a plethora of addons so any number of things could go wrong. Keep in mind this skin was designed exclusively for use with **FEN**.
-- Trakt related Issues are *not supported*. These are not skin related. You'll need to contact the developer of the addon that you are experiencing these types of problems/errors with.
-- Error related Issues **MUST** include a log file. Your Issue will be closed immediately if you fail to include a log file.
-- Make sure to check all open Issues to see if your problem is being addressed already.
-- **DO NOT** hijack an open Issue with unrelated problems. Open a new Issue.
-- Do your best to **monitor** the Issue you have opened. If I need additional information and it is not supplied within 7 days, I will close the Issue. -->
+## License
+
+- **Artwork:** Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)
+- **Code:** GNU General Public License, Version 2.0 (GPL-2.0)
+
+See [`LICENSE.txt`](LICENSE.txt) for details.

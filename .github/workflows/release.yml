@@ -1,0 +1,61 @@
+name: Package and Release
+
+# Package the skin, build the Kodi repository, publish a GitHub Release,
+# and deploy the landing page + repository to GitHub Pages.
+#
+# Trigger by pushing a version tag, e.g.:
+#   git tag v100.0.30j && git push origin v100.0.30j
+# or run manually from the Actions tab (Pages-only deploy, no Release).
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write   # create the GitHub Release
+  pages: write      # deploy to GitHub Pages
+  id-token: write   # required by actions/deploy-pages
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build site and Kodi repository
+        run: python3 .github/scripts/build_repo.py
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            _site/repo/skin.fentastic/skin.fentastic-*.zip
+            _site/repo/repository.fentastic/repository.fentastic-*.zip
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
