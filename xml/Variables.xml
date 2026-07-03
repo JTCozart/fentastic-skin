@@ -1278,4 +1278,8 @@
 		<value condition="Skin.HasSetting(ClassicFENtastic)">Classic FENtastic</value>
 		<value>FENtastic Plus</value>
 	</variable>
+	<variable name="ContextMenuTitleVar">
+		<value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
+		<value>Context menu</value>
+	</variable>
 </includes>

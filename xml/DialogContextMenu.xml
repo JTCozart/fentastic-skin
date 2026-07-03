@@ -3,20 +3,24 @@
 	<defaultcontrol>996</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<coordinates>
-		<left>0</left>
-		<top>0</top>
+		<origin x="712" y="155"/>
 	</coordinates>
 	<controls>
+		<include>ContextFade</include>
 		<control type="group">
-			<left>735</left>
-			<top>225</top>
-			<include content="DialogBackgroundCommons">
-				<param name="width" value="450" />
-				<param name="height" value="455" />
-				<param name="header_label" value="Context menu" />
-				<param name="header_id" value="" />
-				<param name="diffusetexture" value="masks/addons.png" />
+			<include content="CenterContext">
+				<param name="id" value="996" />
 			</include>
+			<control type="label">
+				<top>-70</top>
+				<left>-225</left>
+				<width>896</width>
+				<height>70</height>
+				<font>font36_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<align>center</align>
+				<label>$VAR[ContextMenuTitleVar]</label>
+			</control>
 			<control type="button">
 				<left>-1920</left>
 				<top>-1080</top>
@@ -26,28 +30,28 @@
 				<texturenofocus />
 				<onclick>Action(close)</onclick>
 			</control>
-			<animation effect="slide" end="0,175" time="0" condition="Window.IsActive(home)">conditional</animation>
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
 				<left>0</left>
-				<top>100</top>
-				<width>450</width>
-				<height>325</height>
+				<top>0</top>
+				<width>446</width>
+				<height max="780">auto</height>
 				<usecontrolcoords>true</usecontrolcoords>
 			</control>
 			<include content="UpDownArrows">
 				<param name="container_id" value="996" />
-				<param name="posx" value="201" />
-				<param name="up_posy" value="-40" />
-				<param name="down_posy" value="470" />
+				<param name="posx" value="199" />
+				<param name="up_posy" value="-130" />
+				<param name="down_posy" value="790" />
 			</include>
 			<control type="button" id="1000">
 				<description>button template</description>
-				<left>25</left>
+				<left>0</left>
 				<top></top>
-				<width>400</width>
-				<height>65</height>
+				<width>446</width>
+				<height>70</height>
 				<align>center</align>
+				<font>font32</font>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
 				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
