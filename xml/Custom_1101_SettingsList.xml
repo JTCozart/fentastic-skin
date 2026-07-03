@@ -59,7 +59,7 @@
 						<width>700</width>
 						<include>DialogSettingButton</include>
 						<label>$LOCALIZE[31112]</label>
-						<label2>[B]$INFO[VideoPlayer.AudioLanguage][/B]</label2>
+						<label2>$INFO[VideoPlayer.AudioLanguage]</label2>
 						<onclick>AudioNextLanguage</onclick>
 						<visible>Integer.IsGreater(VideoPlayer.AudioStreamCount,1)</visible>
 					</control>

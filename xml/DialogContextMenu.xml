@@ -9,7 +9,7 @@
 	<controls>
 		<control type="group">
 			<left>735</left>
-			<top>225</top>
+			<top>313</top>
 			<include content="DialogBackgroundCommons">
 				<param name="width" value="450" />
 				<param name="height" value="455" />
@@ -26,7 +26,6 @@
 				<texturenofocus />
 				<onclick>Action(close)</onclick>
 			</control>
-			<animation effect="slide" end="0,175" time="0" condition="Window.IsActive(home)">conditional</animation>
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
 				<left>0</left>

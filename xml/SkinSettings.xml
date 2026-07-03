@@ -620,6 +620,131 @@
 					<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
 				</control>
 			</control>
+			<control type="grouplist" id="638">
+				<top>133</top>
+				<left>25</left>
+				<right>0</right>
+				<bottom>140</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>638</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>638</ondown>
+				<visible>Container(9000).HasFocus(11)</visible>
+				<!-- MAINTENANCE & TOOLS -->
+				<control type="radiobutton" id="63800">
+					<label>Enable maintenance &amp; tools menu</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.MaintenanceTools)</selected>
+					<onclick>Skin.ToggleSetting(Enable.MaintenanceTools)</onclick>
+				</control>
+				<control type="radiobutton" id="63801">
+					<label>   - Account Manager</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(ToolsNoAccountManager)</selected>
+					<onclick>Skin.ToggleSetting(ToolsNoAccountManager)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + System.HasAddon(script.module.acctmgr)</visible>
+				</control>
+				<control type="radiobutton" id="63802">
+					<label>   - Authorize Services</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(ToolsNoAuthorizeServices)</selected>
+					<onclick>Skin.ToggleSetting(ToolsNoAuthorizeServices)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + [System.HasAddon(plugin.video.themoviedb.helper) | System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight) | System.HasAddon(script.module.resolveurl) | System.HasAddon(plugin.video.youtube)]</visible>
+				</control>
+				<control type="radiobutton" id="63803">
+					<label>      - Trakt</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoTrakt)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoTrakt)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + [System.HasAddon(plugin.video.themoviedb.helper) | System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight)] + !Skin.HasSetting(ToolsNoAuthorizeServices)</visible>
+				</control>
+				<control type="radiobutton" id="63804">
+					<label>      - Real-Debrid</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoRealDebrid)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoRealDebrid)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + [System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight) | System.HasAddon(script.module.resolveurl)] + !Skin.HasSetting(ToolsNoAuthorizeServices)</visible>
+				</control>
+				<control type="radiobutton" id="63805">
+					<label>      - Premiumize</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoPremiumize)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoPremiumize)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + [System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight) | System.HasAddon(script.module.resolveurl)] + !Skin.HasSetting(ToolsNoAuthorizeServices)</visible>
+				</control>
+				<control type="radiobutton" id="63806">
+					<label>      - All-Debrid</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoAllDebrid)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoAllDebrid)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + [System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight) | System.HasAddon(script.module.resolveurl)] + !Skin.HasSetting(ToolsNoAuthorizeServices)</visible>
+				</control>
+				<control type="radiobutton" id="63807">
+					<label>      - Torbox</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoTorbox)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoTorbox)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + [System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight) | System.HasAddon(script.module.resolveurl)] + !Skin.HasSetting(ToolsNoAuthorizeServices)</visible>
+				</control>
+				<control type="radiobutton" id="63808">
+					<label>      - Skin MDbList API Key</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoSkinMDBList)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoSkinMDBList)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + !Skin.HasSetting(ToolsNoAuthorizeServices)</visible>
+				</control>
+				<control type="radiobutton" id="63809">
+					<label>      - TMDbH MDbList API Key</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoTMDBHMDBList)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoTMDBHMDBList)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !System.HasAddon(script.module.acctmgr) + !Skin.HasSetting(ToolsNoAuthorizeServices) + System.HasAddon(plugin.video.themoviedb.helper)</visible>
+				</control>
+				<control type="radiobutton" id="63810">
+					<label>      - YouTube Sign-In</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(AuthNoYouTube)</selected>
+					<onclick>Skin.ToggleSetting(AuthNoYouTube)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + !Skin.HasSetting(ToolsNoAuthorizeServices) + System.HasAddon(plugin.video.youtube)</visible>
+				</control>
+				<control type="radiobutton" id="63811">
+					<label>   - Maintenance</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(ToolsNoMaintenance)</selected>
+					<onclick>Skin.ToggleSetting(ToolsNoMaintenance)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools)</visible>
+				</control>
+				<control type="radiobutton" id="63812">
+					<label>   - Custom Configs</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(ToolsNoCustomConfigs)</selected>
+					<onclick>Skin.ToggleSetting(ToolsNoCustomConfigs)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools)</visible>
+				</control>
+				<!-- PRE-MADE CONFIGS -->
+				<control type="radiobutton" id="63815">
+					<label>   - Pre-made Configs</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Enable.PreMadeConfigs)</selected>
+					<onclick>Skin.ToggleSetting(Enable.PreMadeConfigs)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools) + [System.HasAddon(plugin.video.themoviedb.helper) | System.HasAddon(plugin.video.fenlight) | System.HasAddon(plugin.video.umbrella) | System.HasAddon(plugin.video.pov) | System.HasAddon(plugin.video.gears) | System.HasAddon(plugin.video.redlight)]</visible>
+				</control>
+				<control type="radiobutton" id="63813">
+					<label>   - Backup &amp; Restore</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(ToolsNoBackupRestore)</selected>
+					<onclick>Skin.ToggleSetting(ToolsNoBackupRestore)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools)</visible>
+				</control>
+				<control type="radiobutton" id="63814">
+					<label>   - Video Cache Config</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(ToolsNoVideoCacheConfig)</selected>
+					<onclick>Skin.ToggleSetting(ToolsNoVideoCacheConfig)</onclick>
+					<visible>Skin.HasSetting(Enable.MaintenanceTools)</visible>
+				</control>
+			</control>
 			<control type="grouplist" id="636">
 				<top>133</top>
 				<left>25</left>
@@ -748,24 +873,10 @@
 				</control>
 				<!-- ADDON BROWSER -->
 				<control type="radiobutton" id="63703">
-					<label>Enable Add-on Browser top bar shortcut</label>
+					<label>Enable add-on browser top bar shortcut</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.AddonBrowser)</selected>
 					<onclick>Skin.ToggleSetting(Enable.AddonBrowser)</onclick>
-				</control>
-				<!-- MAINTENANCE & TOOLS -->
-				<control type="radiobutton" id="63704">
-					<label>Enable maintenance &amp; tools menu</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.MaintenanceTools)</selected>
-					<onclick>Skin.ToggleSetting(Enable.MaintenanceTools)</onclick>
-				</control>
-				<!-- PRE-MADE CONFIGS -->
-				<control type="radiobutton" id="63705">
-					<label>Enable pre-made configurations menu</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Enable.PreMadeConfigs)</selected>
-					<onclick>Skin.ToggleSetting(Enable.PreMadeConfigs)</onclick>
 				</control>
 				<!-- ENABLE/DISABLE KODI SPLASH -->
 				<control type="radiobutton" id="63706">
@@ -1329,6 +1440,12 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>622</ondown>
 				<visible>Container(9000).HasFocus(8)</visible>
+				<control type="radiobutton" id="6219">
+					<label>Use default Estuary video OSD</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(StockEstuaryVideoOSD)</selected>
+					<onclick>Skin.ToggleSetting(StockEstuaryVideoOSD)</onclick>
+				</control>
 				<control type="radiobutton" id="6220">
 					<label>$LOCALIZE[31172]</label>
 					<include>DefaultSettingButton</include>
@@ -1341,6 +1458,41 @@
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SetNumeric(OSDAutoCloseTime)</onclick>
 					<enable>Skin.HasSetting(OSDAutoClose)</enable>
+				</control>
+				<control type="radiobutton" id="6222">
+					<label>$LOCALIZE[31506]</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(SeekBarBottom)</selected>
+					<onclick>Skin.ToggleSetting(SeekBarBottom)</onclick>
+					<enable>!Skin.HasSetting(StockEstuaryVideoOSD)</enable>
+				</control>
+				<control type="radiobutton" id="6223">
+					<label>Display video info during pause</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(ShowVideoInfoOnPause)</selected>
+					<onclick>Skin.ToggleSetting(ShowVideoInfoOnPause)</onclick>
+					<enable>!Skin.HasSetting(StockEstuaryVideoOSD)</enable>
+				</control>
+				<control type="radiobutton" id="6224">
+					<label>Display subtitle offset button</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(ShowSubtitleOffsetButton)</selected>
+					<onclick>Skin.ToggleSetting(ShowSubtitleOffsetButton)</onclick>
+					<enable>!Skin.HasSetting(StockEstuaryVideoOSD)</enable>
+				</control>
+				<control type="button" id="6225">
+					<label>Audio button behavior</label>
+					<label2>$VAR[OSDAudioButtonModeVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.fentastic.helper,mode=osd_audio_button_select)</onclick>
+					<enable>!Skin.HasSetting(StockEstuaryVideoOSD)</enable>
+				</control>
+				<control type="button" id="6226">
+					<label>Subtitle button behavior</label>
+					<label2>$VAR[OSDSubtitleButtonModeVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.fentastic.helper,mode=osd_subtitle_button_select)</onclick>
+					<enable>!Skin.HasSetting(StockEstuaryVideoOSD)</enable>
 				</control>
 			</control>
 			<!-- EXTRA INFO -->
@@ -1399,7 +1551,7 @@
 				<left>0</left>
 				<top>130</top>
 				<width>470</width>
-				<height>900</height>
+				<height>1000</height>
 				<onleft>10000</onleft>
 				<onright>10000</onright>
 				<onup>9000</onup>
@@ -1438,6 +1590,10 @@
 				<content>
 					<item id="1">
 						<label>Main Menu</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="11">
+						<label>Tools Menu</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="2">
@@ -1495,33 +1651,6 @@
 				<onleft>610</onleft>
 				<onright>610</onright>
 				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
-				<hitrect x="0" y="0" w="60" h="100%"/>
-				<visible>Control.IsVisible(610)</visible>
-			</control>
-		</control>
-		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[5] [B]»[/B] $LOCALIZE[20077]"/>
-		</include>
-		<include>BottomBar</include>
-		<control type="textbox" id="6">
-			<include>OpenClose_Right</include>
-			<description>description area</description>
-			<left>510</left>
-			<bottom>27</bottom>
-			<width>1350</width>
-			<height>100</height>
-			<font>font12</font>
-			<align>justify</align>
-			<textcolor>unfocused_text</textcolor>
-			<label>$VAR[SkinSettingsHelpTextVar]</label>
-			<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
-		</control>
-	</controls>
-</window>
-de" start="0" end="100" time="200" delay="300">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>

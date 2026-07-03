@@ -858,6 +858,11 @@ msgstr ""
 
 #empty strings from id 31177 to 31599
 
+#: /xml/SkinSettings.xml
+msgctxt "#31506"
+msgid "Display seek bar at bottom of screen"
+msgstr ""
+
 #: /xml/DialogPlayerProcessInfo.xml
 #. Label to show the video codec name
 msgctxt "#31600"
@@ -964,4 +969,34 @@ msgstr ""
 #: /xml/Variables.xml
 msgctxt "#31617"
 msgid "Extra Info: View setup guide and the current changelog"
+msgstr ""
+
+#. OSD help label for cycling audio stream language
+#: /xml/Variables.xml
+msgctxt "#31618"
+msgid "Audio language"
+msgstr ""
+
+#. OSD help label for cycling subtitle language
+#: /xml/Variables.xml
+msgctxt "#31619"
+msgid "Subtitle language"
+msgstr ""
+
+#. OSD help label for cycling audio stream language
+#: /xml/Variables.xml
+msgctxt "#31620"
+msgid "Audio settings"
+msgstr ""
+
+#. OSD help label for cycling subtitle language
+#: /xml/Variables.xml
+msgctxt "#31621"
+msgid "Subtitle settings"
+msgstr ""
+
+#. OSD subtitle offset
+#: /xml/Variables.xml
+msgctxt "#31622"
+msgid "Subtitle offset"
 msgstr ""

@@ -10,8 +10,8 @@
 			<top>0</top>
 			<width>100%</width>
 			<bottom>280</bottom>
-			<texturefocus />
-			<texturenofocus />
+			<texturefocus/>
+			<texturenofocus/>
 			<onclick>Action(close)</onclick>
 		</control>
 		<!-- TODO Add new MPAA icons, Info message at start of playback (title, year, mpaa, audio and video codec) -->
@@ -45,8 +45,8 @@
 					<orientation>horizontal</orientation>
 					<onup>87</onup>
 					<ondown>noop</ondown>
-					<onleft>70048</onleft>
-					<onright>804</onright>
+					<onleft>70047</onleft>
+					<onright>70056</onright>
 					<control type="radiobutton" id="600">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/previous.png"/>
@@ -70,10 +70,10 @@
 							<top>0</top>
 							<width>74</width>
 							<height>74</height>
-							<label></label>
-							<font></font>
+							<label/>
+							<font/>
 							<texturefocus colordiffuse="button_focus">osd/fullscreen/buttons/button-fo.png</texturefocus>
-							<texturenofocus />
+							<texturenofocus/>
 							<onleft>601</onleft>
 							<onright>603</onright>
 							<onup>87</onup>
@@ -129,8 +129,8 @@
 						<height>76</height>
 						<radiowidth>74</radiowidth>
 						<radioheight>74</radioheight>
-						<font></font>
-						<texturenofocus />
+						<font/>
+						<texturenofocus/>
 						<radioposx>1</radioposx>
 						<radioposy>0</radioposy>
 						<selected>!PVR.IsRecordingPlayingChannel</selected>
@@ -154,6 +154,39 @@
 					<ondown condition="Control.HasFocus(255)">13103</ondown>
 					<onleft>608</onleft>
 					<onright>600</onright>
+					<!-- Audio Button -->
+					<control type="radiobutton" id="70056">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/next-audio.png"/>
+						</include>
+						<onclick condition="String.IsEqual(Skin.String(OSDAudioButtonMode),Audio settings)">ActivateWindow(osdaudiosettings)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(OSDAudioButtonMode),Next audio stream)">AudioNextLanguage</onclick>
+						<visible>!Skin.HasSetting(StockEstuaryVideoOSD) + !VideoPlayer.Content(LiveTV) + !String.IsEqual(Skin.String(OSDAudioButtonMode),Estuary default) + [String.IsEqual(Skin.String(OSDAudioButtonMode),Audio settings) | [String.IsEqual(Skin.String(OSDAudioButtonMode),Next audio stream) + Integer.IsGreater(VideoPlayer.AudioStreamCount,0)]]</visible>
+					</control>
+					<!-- Subtitle Button -->
+					<control type="radiobutton" id="70057">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/next-subtitle.png"/>
+						</include>
+						<onclick condition="String.IsEqual(Skin.String(OSDSubtitleButtonMode),Subtitle settings)">ActivateWindow(osdsubtitlesettings)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(OSDSubtitleButtonMode),Next subtitle)">NextSubtitle</onclick>
+						<visible>!Skin.HasSetting(StockEstuaryVideoOSD) + !VideoPlayer.Content(LiveTV) + [String.IsEqual(Skin.String(OSDSubtitleButtonMode),Subtitle settings) | [String.IsEqual(Skin.String(OSDSubtitleButtonMode),Next subtitle) + VideoPlayer.HasSubtitles]]</visible>
+					</control>
+					<!-- Estuary Default Subtitle Button -->
+					<control type="radiobutton" id="70059">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/next-subtitle.png"/>
+						</include>
+						<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+						<visible>!VideoPlayer.Content(LiveTV) + [Skin.HasSetting(StockEstuaryVideoOSD) | String.IsEqual(Skin.String(OSDSubtitleButtonMode),Estuary default)]</visible>
+					</control>
+					<control type="radiobutton" id="70058">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/subtitledelay.png"/>
+						</include>
+						<onclick>SubTitleDelay</onclick>
+						<visible>!Skin.HasSetting(StockEstuaryVideoOSD) + Skin.HasSetting(ShowSubtitleOffsetButton) + !VideoPlayer.Content(LiveTV) + VideoPlayer.HasSubtitles</visible>
+					</control>
 					<control type="radiobutton" id="804">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/home.png"/>
@@ -190,6 +223,7 @@
 							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
 						</include>
 						<onclick>Info</onclick>
+						<visible>Skin.HasSetting(StockEstuaryVideoOSD) | !Skin.HasSetting(ShowVideoInfoOnPause) | !Player.Paused</visible>
 					</control>
 					<control type="radiobutton" id="70044">
 						<include content="OSDButton">
@@ -208,13 +242,6 @@
 					</control>
 					<control type="radiobutton" id="70046">
 						<include content="OSDButton">
-							<param name="texture" value="osd/fullscreen/buttons/settings-subtitle.png"/>
-						</include>
-						<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
-						<visible>!VideoPlayer.Content(LiveTV) | VideoPlayer.HasSubtitles</visible>
-					</control>
-					<control type="radiobutton" id="70047">
-						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/stereoscopic.png"/>
 						</include>
 						<visible>VideoPlayer.IsStereoscopic</visible>
@@ -222,7 +249,7 @@
 						<onclick>SetProperty(settingslist_header,$LOCALIZE[36501],home)</onclick>
 						<onclick>ActivateWindow(1101)</onclick>
 					</control>
-					<control type="radiobutton" id="70048">
+					<control type="radiobutton" id="70047">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/settings.png"/>
 						</include>
@@ -236,11 +263,11 @@
 				<top>60</top>
 				<animation type="WindowOpen" condition="!Window.IsVisible(fullscreeninfo)" reversible="False">
 					<effect type="fade" start="0" end="100" time="300"/>
-					<effect type="slide" start="0,200" end="0,0" time="300" tween="cubic" easing="out" />
+					<effect type="slide" start="0,200" end="0,0" time="300" tween="cubic" easing="out"/>
 				</animation>
 				<animation type="WindowClose" condition="!Window.IsVisible(fullscreeninfo)" reversible="False">
 					<effect type="fade" start="100" end="0" time="300"/>
-					<effect type="slide" start="0,0" end="0,200" time="300" tween="cubic" easing="out" />
+					<effect type="slide" start="0,0" end="0,200" time="300" tween="cubic" easing="out"/>
 				</animation>
 				<animation type="WindowOpen" condition="Window.IsVisible(fullscreeninfo)" reversible="False">
 					<effect type="fade" start="0" end="100" time="300"/>
@@ -313,6 +340,89 @@
 					<action>pvr.seek</action>
 					<visible>Control.HasFocus(87) + VideoPlayer.Content(LiveTV)</visible>
 				</control>
+			</control>
+		</control>
+		<!-- Information when video paused -->
+		<control type="group" id="90000">
+			<visible>Player.Paused + Skin.HasSetting(ShowVideoInfoOnPause) + !Skin.HasSetting(StockEstuaryVideoOSD) + !Window.IsVisible(fullscreeninfo) + Window.IsActive(videoosd)</visible>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			<left>40</left>
+			<top>400</top>
+			<width>1840</width>
+			<height>435</height>
+			<!-- Background -->
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1840</width>
+				<height>435</height>
+				<texture colordiffuse="DD000000">colors/white.png</texture>
+			</control>
+			<!-- Movie Poster -->
+			<control type="image">
+				<left>30</left>
+				<top>20</top>
+				<width>220</width>
+				<height>330</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Player.Art(poster)]</texture>
+				<visible>!String.IsEmpty(Player.Art(poster))</visible>
+			</control>
+			<!-- TV Show Poster -->
+			<control type="image">
+				<left>30</left>
+				<top>20</top>
+				<width>220</width>
+				<height>330</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Player.Art(tvshow.poster)]</texture>
+				<visible>String.IsEmpty(Player.Art(poster)) + !String.IsEmpty(Player.Art(tvshow.poster))</visible>
+			</control>
+			<!-- Title -->
+			<control type="label">
+				<left>290</left>
+				<top>30</top>
+				<width>1500</width>
+				<height>60</height>
+				<font>font45</font>
+				<label>$INFO[VideoPlayer.Title]</label>
+				<textcolor>button_focus</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<!-- Details -->
+			<control type="label">
+				<left>290</left>
+				<top>95</top>
+				<width>1500</width>
+				<height>40</height>
+				<font>font14</font>
+				<label>$INFO[VideoPlayer.Year] • $INFO[VideoPlayer.Genre] • $INFO[VideoPlayer.Duration]</label>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<!-- Plot -->
+			<control type="textbox">
+				<left>290</left>
+				<top>145</top>
+				<width>1500</width>
+				<height>180</height>
+				<font>font14</font>
+				<label>$INFO[VideoPlayer.Plot]</label>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<autoscroll time="5000" delay="6000" repeat="10000">true</autoscroll>
+			</control>
+			<!-- Season-Episode / Studio - Video Resolution / Codec-->
+			<control type="label">
+				<left>290</left>
+				<top>355</top>
+				<width>1450</width>
+				<height>40</height>
+				<font>font14</font>
+				<label>$VAR[VideoInfoSeasonStudioLabel]   |   $VAR[VideoResolutionLabel] • $INFO[VideoPlayer.VideoCodec] • $INFO[VideoPlayer.AudioCodec] • $INFO[VideoPlayer.AudioChannels] Ch</label>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
 			</control>
 		</control>
 	</controls>

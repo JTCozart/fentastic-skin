@@ -346,9 +346,24 @@
 		<value condition="Control.HasFocus(70043)">$LOCALIZE[19033]</value>
 		<value condition="Control.HasFocus(70044)">$LOCALIZE[298]</value>
 		<value condition="Control.HasFocus(70045)">$LOCALIZE[31106]</value>
-		<value condition="Control.HasFocus(70046)">$LOCALIZE[24012]</value>
-		<value condition="Control.HasFocus(70047)">$LOCALIZE[36501]</value>
-		<value condition="Control.HasFocus(70048)">$LOCALIZE[5]</value>
+		<value condition="Control.HasFocus(70046)">$LOCALIZE[36501]</value>
+		<value condition="Control.HasFocus(70047)">$LOCALIZE[5]</value>
+
+		<!-- Audio/Subtitles buttons set to open settings -->
+		<value condition="Control.HasFocus(70056) + String.IsEqual(Skin.String(OSDAudioButtonMode),Audio settings)">$LOCALIZE[31620]</value>
+		<value condition="Control.HasFocus(70057) + String.IsEqual(Skin.String(OSDSubtitleButtonMode),Subtitle settings)">$LOCALIZE[31621]</value>
+
+		<!-- Audio/Subtitles buttons set to cycle next language -->
+		<value condition="Control.HasFocus(70056)">$LOCALIZE[31618] ([CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE])</value>
+		<value condition="Control.HasFocus(70057) + VideoPlayer.SubtitlesEnabled">$LOCALIZE[31619] ([CAPITALIZE]$INFO[VideoPlayer.SubtitlesLanguage][/CAPITALIZE])</value>
+		<value condition="Control.HasFocus(70057) + !VideoPlayer.SubtitlesEnabled">$LOCALIZE[31619] (Disabled)</value>
+
+		<!-- Subtitle offset button -->
+		<value condition="Control.HasFocus(70058)">$LOCALIZE[31622]</value>
+
+		<!-- Estuary default subtitle button -->
+		<value condition="Control.HasFocus(70059)">$LOCALIZE[31621]</value>
+
 		<value condition="Control.HasFocus(70050)">$LOCALIZE[29900]</value>
 		<value condition="Control.HasFocus(70051)">$LOCALIZE[31066]</value>
 		<value condition="Control.HasFocus(70052)">$LOCALIZE[31033]$INFO[MusicPlayer.UserRating, : ]</value>
@@ -1268,14 +1283,55 @@
 	</variable>
 	<!-- TMDBH TRAKT LIST WIDGET BLOCK -->
 	<variable name="TMDBH.AllowTrakt">
-		<value condition="!Skin.HasSetting(HideTMDBHTraktResults)
-                      + !Skin.HasSetting(HideTraktResults)
-                      + String.IsEqual(Skin.String(current_search_provider),0)">true</value>
+		<value condition="!Skin.HasSetting(HideTMDBHTraktResults) + !Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),0)">true</value>
 		<value>false</value>
 	</variable>
 	<!-- Classic FENtastic & FENtastic Plus Look & Feel Experience -->
 	<variable name="LookFeelLabel">
 		<value condition="Skin.HasSetting(ClassicFENtastic)">Classic FENtastic</value>
 		<value>FENtastic Plus</value>
+	</variable>
+	<!-- OSD Audio Button Behaviour -->
+	<variable name="OSDAudioButtonModeVar">
+		<value condition="String.IsEqual(Skin.String(OSDAudioButtonMode),Next audio stream)">Next audio stream</value>
+		<value condition="String.IsEqual(Skin.String(OSDAudioButtonMode),Audio settings)">Audio settings</value>
+		<value condition="String.IsEqual(Skin.String(OSDAudioButtonMode),Disabled)">Disabled</value>
+		<value>Audio settings</value>
+	</variable>
+	<!-- OSD Subtitle Button Behaviour -->
+	<variable name="OSDSubtitleButtonModeVar">
+		<value condition="String.IsEqual(Skin.String(OSDSubtitleButtonMode),Next subtitle)">Next subtitle</value>
+		<value condition="String.IsEqual(Skin.String(OSDSubtitleButtonMode),Subtitle settings)">Subtitle settings</value>
+		<value condition="String.IsEqual(Skin.String(OSDSubtitleButtonMode),Disabled)">Disabled</value>
+		<value>Subtitle settings</value>
+	</variable>
+	<!-- Episode 1-9 Variable -->
+	<variable name="EpisodeNumberVar">
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,1)">01</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,2)">02</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,3)">03</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,4)">04</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,5)">05</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,6)">06</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,7)">07</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,8)">08</value>
+		<value condition="Integer.IsEqual(VideoPlayer.Episode,9)">09</value>
+	<value>$INFO[VideoPlayer.Episode]</value>
+	</variable>
+	<!-- OSD Information Season/Episode & Studio -->
+	<variable name="VideoInfoSeasonStudioLabel">
+		<value condition="!String.IsEmpty(VideoPlayer.Season) + !String.IsEmpty(VideoPlayer.Episode)">S$INFO[VideoPlayer.Season,0]E$VAR[EpisodeNumberVar]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Studio)">$INFO[VideoPlayer.Studio]</value>
+		<value>$INFO[Player.Time] / $INFO[Player.Duration]</value>
+	</variable>
+	<!-- OSD Information Resolution -->
+	<variable name="VideoResolutionLabel">
+		<value condition="String.Contains(VideoPlayer.VideoResolution,4K)">4K</value>
+		<value condition="String.Contains(VideoPlayer.VideoResolution,2160)">4K</value>
+		<value condition="String.Contains(VideoPlayer.VideoResolution,1080)">1080p</value>
+		<value condition="String.Contains(VideoPlayer.VideoResolution,720)">720p</value>
+		<value condition="String.Contains(VideoPlayer.VideoResolution,576)">576p</value>
+		<value condition="String.Contains(VideoPlayer.VideoResolution,480)">480p</value>
+		<value>$INFO[VideoPlayer.VideoResolution]</value>
 	</variable>
 </includes>
