@@ -36,6 +36,7 @@
 					<top>450</top>
 					<width>625</width>
 					<height>335</height>
+					<font>font25_title</font>
 					<label>$INFO[ListItem.AddonSummary,[B],[/B][CR]]$INFO[ListItem.AddonDescription][CR]$VAR[AddonNewsVar,[I][CR][CR],[/I]]</label>
 					<textcolor>unfocused_text</textcolor>
 					<autoscroll delay="5000" repeat="7500" time="5000">true</autoscroll>
@@ -46,6 +47,7 @@
 					<top>450</top>
 					<width>625</width>
 					<height>335</height>
+					<font>font25_title</font>
 					<label>$INFO[ListItem.AddonSummary,[B],[/B][CR]]$INFO[ListItem.AddonDescription][CR]$VAR[AddonNewsVar,[I][CR][CR],[/I]]</label>
 					<textcolor>focused_text</textcolor>
 					<autoscroll delay="5000" repeat="7500" time="5000">true</autoscroll>
