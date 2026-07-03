@@ -16,19 +16,21 @@
 				<param name="diffusetexture" value="masks/dialogconfirm.png" />
 			</include>
 			<control type="textbox" id="9">
-				<left>30</left>
+				<left>25</left>
 				<top>82</top>
-				<width>855</width>
+				<width>865</width>
 				<height>165</height>
 				<label></label>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="progress" id="20">
-				<left>30</left>
-				<top>242</top>
-				<width>855</width>
-				<height>24</height>
+				<left>25</left>
+				<top>248</top>
+				<width>865</width>
+				<height>6</height>
+				<texturebg colordiffuse="button_focus2">progress/texturebg_alt_white.png</texturebg>
+				<midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
 				<info>System.Progressbar</info>
 			</control>
 			<control type="grouplist" id="9000">

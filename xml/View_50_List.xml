@@ -150,6 +150,16 @@
 				<viewtype label="$PARAM[viewtype_label]">list</viewtype>
 				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible>
 				<focusedlayout height="85">
+					<control type="progress">
+						<left>70</left>
+						<bottom>2</bottom>
+						<right>20</right>
+						<height>3</height>
+						<texturebg/>
+						<midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
+						<info>ListItem.Property(WatchedProgress)</info>
+						<visible>!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)</visible>
+					</control>
 					<control type="label">
 						<left>70</left>
 						<right>20</right>
@@ -194,6 +204,16 @@
 					</control>
 				</focusedlayout>
 				<itemlayout height="list_item_height">
+					<control type="progress">
+						<left>70</left>
+						<bottom>2</bottom>
+						<right>20</right>
+						<height>3</height>
+						<texturebg/>
+						<midtexture colordiffuse="grey" border="3">progress/texturebg_alt_white.png</midtexture>
+						<info>ListItem.Property(WatchedProgress)</info>
+						<visible>!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)</visible>
+					</control>
 					<control type="label">
 						<left>70</left>
 						<right>20</right>

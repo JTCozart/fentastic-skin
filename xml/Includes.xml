@@ -853,27 +853,27 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="radiobutton">
-				<right>30</right>
-				<top>25</top>
-				<width>48</width>
-				<height>48</height>
-				<radiowidth>48</radiowidth>
-				<radioheight>48</radioheight>
+				<right>20</right>
+				<top>20</top>
+				<width>64</width>
+				<height>64</height>
+				<radiowidth>64</radiowidth>
+				<radioheight>64</radioheight>
 				<texturefocus/>
 				<texturenofocus/>
 				<label/>
-				<textureradioofffocus colordiffuse="EEFFFFFF">dialogs/close.png</textureradioofffocus>
+				<textureradioofffocus colordiffuse="close_icon">dialogs/close.png</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="accent_color">special://xbmc/media/vendor_icon.png</textureradiooffnofocus>
-				<textureradioonfocus colordiffuse="EEFFFFFF">dialogs/close.png</textureradioonfocus>
+				<textureradioonfocus colordiffuse="close_icon">dialogs/close.png</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="accent_color">special://xbmc/media/vendor_icon.png</textureradioonnofocus>
 				<onclick>Action(close)</onclick>
 				<visible>!Skin.HasSetting(touchmode)</visible>
 			</control>
 			<control type="button">
-				<right>10</right>
-				<top>11</top>
-				<width>48</width>
-				<height>48</height>
+				<right>8</right>
+				<top>8</top>
+				<width>64</width>
+				<height>64</height>
 				<texturefocus>dialogs/close.png</texturefocus>
 				<texturenofocus>dialogs/close.png</texturenofocus>
 				<onclick>Action(close)</onclick>

@@ -20,6 +20,8 @@
 	<color name="menu_focused_text">FFFFFFFF</color>
 	<color name="menu_icon_highlight">51FFFFFF</color>
 	<color name="menu_icon_dim">44FFFFFF</color>
+	<color name="close_icon">EEFFFFFF</color>
+	<color name="addon_deprecated_overlay">AAFFFFFF</color>
 	<color name="grey">FFA0A0A0</color>
 	<color name="blue">FF7ACAFE</color>
 	<color name="red">FFCE4421</color>

@@ -510,7 +510,7 @@
 									<aligny>center</aligny>
 									<font>font32</font>
 									<label>$INFO[ListItem.Label]</label>
-									<textcolor>darkgrey</textcolor>
+									<textcolor>grey</textcolor>
 									<shadowcolor>text_shadow</shadowcolor>
 								</control>
 							</itemlayout>
@@ -789,7 +789,7 @@
 			</control>
 		</control>
 		<!-- SPINNER OVERLAY -->
-		<!-- <control type="group" id="99998">
+		<control type="group" id="99998">
 			<visible>String.IsEqual(Skin.String(SearchBusy),1)</visible>
 			<depth>999999</depth>
 			<control type="image">
@@ -797,18 +797,36 @@
 				<top>0</top>
 				<width>1920</width>
 				<height>1080</height>
-				<texture colordiffuse="AA000000">black.png</texture>
+				<texture colordiffuse="addon_deprecated_overlay">colors/black.png</texture>
 			</control>
-			<control type="multiimage">
+			<control type="image">
 				<centerleft>960</centerleft>
 				<centertop>540</centertop>
-				<width>200</width>
-				<height>200</height>
+				<width>100</width>
+				<height>100</height>
 				<aspectratio>keep</aspectratio>
-				<imagepath>search_spinner/</imagepath>
-				<timeperimage>30</timeperimage>
-				<randomize>false</randomize>
+				<texture colordiffuse="button_focus2">dialogs/extendedprogress/loading-back.png</texture>
 			</control>
-		</control> -->
+			<control type="image">
+				<centerleft>960</centerleft>
+				<centertop>540</centertop>
+				<width>100</width>
+				<height>100</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="unfocused_text">dialogs/extendedprogress/loading.png</texture>
+				<animation type="Visible" reversible="true">
+					<effect type="rotate" start="0" end="360" center="auto" time="1000" loop="true"/>
+				</animation>
+			</control>
+			<control type="label">
+				<centerleft>960</centerleft>
+				<top>590</top>
+				<width>400</width>
+				<align>center</align>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<label>Searching...</label>
+			</control>
+		</control>
 	</controls>
 </window>
