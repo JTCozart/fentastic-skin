@@ -5,11 +5,20 @@ name: Release
 #
 #   1. python3 .github/scripts/build_repo.py   # regenerate ./docs/repo
 #   2. commit ./docs/repo + the addon.xml version bump
-#   3. git tag vX.Y.Z && git push --tags
+#   3. git push origin master
+#   4. wait ~2 minutes for the "pages build and deployment" run to finish
+#   5. git tag vX.Y.Z && git push origin vX.Y.Z
 #
-# Pushing to master makes Pages serve the updated repo automatically. This
-# workflow runs on the tag: it verifies the committed repo matches the version
-# and publishes a GitHub Release with the zips.
+# Pushing to master makes Pages serve the updated repo automatically - that's
+# GitHub's own auto-generated "pages build and deployment" workflow, not one
+# we control here, so it can't be given a delay step directly. Pushing the
+# tag right after master races that in-flight Pages deploy and reliably fails
+# it (it currently self-retries and recovers, but don't rely on that): the
+# 2-minute gap above is required so the tag push happens after Pages is done,
+# not concurrently with it.
+#
+# This workflow runs on the tag: it verifies the committed repo matches the
+# version and publishes a GitHub Release with the zips.
 
 on:
   push:
