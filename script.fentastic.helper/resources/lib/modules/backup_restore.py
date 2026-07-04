@@ -255,8 +255,9 @@ def get_backup_subdir(folder_name):
 # GUI & FAVS BACKUP/RESTORE FUNCTIONS
 # -------------------------------------------------
 #Backup GUI settings
-def backup_gui():
-    gui_save = get_backup_subdir("gui_bkup")
+def backup_gui(gui_save=None):
+    if gui_save is None:
+        gui_save = get_backup_subdir("gui_bkup")
     selection = xbmcgui.Dialog().yesno("FENtastic Plus","Are you sure?")
     if selection == 1:
         ensure_dir(gui_save)
@@ -269,9 +270,10 @@ def backup_gui():
     elif selection == 0:
         return
 
-#Restore GUI settings              
-def restore_gui():
-    gui_save = get_backup_subdir("gui_bkup")
+#Restore GUI settings
+def restore_gui(gui_save=None):
+    if gui_save is None:
+        gui_save = get_backup_subdir("gui_bkup")
     selection = xbmcgui.Dialog().yesno("FENtastic Plus","Are you sure?")
     if selection == 1:
         if os.path.exists(os.path.join(gui_save, gui_file)):
@@ -285,8 +287,9 @@ def restore_gui():
         return
 
 #Backup Favourites
-def backup_favs():
-    fav_save = get_backup_subdir("favs_bkup")
+def backup_favs(fav_save=None):
+    if fav_save is None:
+        fav_save = get_backup_subdir("favs_bkup")
     selection = xbmcgui.Dialog().yesno("FENtastic Plus","Are you sure?")
     if selection == 1:
         ensure_dir(fav_save)
@@ -299,9 +302,10 @@ def backup_favs():
     elif selection == 0:
         return
 
-#Restore Favourites              
-def restore_favs():
-    fav_save = get_backup_subdir("favs_bkup")
+#Restore Favourites
+def restore_favs(fav_save=None):
+    if fav_save is None:
+        fav_save = get_backup_subdir("favs_bkup")
     selection = xbmcgui.Dialog().yesno("FENtastic Plus","Are you sure?")
     if selection == 1:
         if os.path.exists(os.path.join(fav_save, fav_file)):

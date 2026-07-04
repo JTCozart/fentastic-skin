@@ -9,7 +9,9 @@ https://jtcozart.github.io/fentastic-skin/repo/ :
   docs/repo/addons.xml.md5      -> checksum of addons.xml
   docs/repo/<id>/<id>-<ver>.zip -> installable add-on zips (skin + repository)
   docs/repo/<id>/icon.png|fanart.jpg -> art for the Kodi repo browser
-  docs/repo/index.html          -> friendly page for browser visitors
+  docs/repo/<id>/index.html     -> linked listing so Kodi's file manager can
+                                    browse into the folder and find the zip
+  docs/repo/index.html          -> friendly page, links into each addon folder
 
 The skin <version> is single-sourced from skin.fentastic's addon.xml.
 Run this before tagging a release, then commit ./docs/repo.
@@ -96,20 +98,49 @@ def write_addons_xml(addon_dirs):
     print(f"  wrote addons.xml ({len(content)} bytes) md5={digest}")
 
 
-def write_repo_index():
-    """Friendly page for humans visiting /repo/ (Kodi uses addons.xml directly)."""
-    html = """<!DOCTYPE html>
+def write_dir_listing(dir_path):
+    """Plain <a href> listing of dir_path's contents.
+
+    GitHub Pages has no real directory autoindex, and Kodi's file manager
+    (used to bootstrap-install a repository addon from zip) discovers files
+    by parsing <a href> links out of whatever HTML it fetches for a folder.
+    Without this, subfolders with no index.html 404 and are invisible to
+    Kodi, even though the zips inside them are reachable by direct URL.
+    """
+    entries = sorted(os.listdir(dir_path))
+    items = "\n".join(f'    <li><a href="{e}">{e}</a></li>' for e in entries)
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><title>Index of {os.path.basename(dir_path)}/</title></head>
+<body>
+<h1>Index of {os.path.basename(dir_path)}/</h1>
+<ul>
+    <li><a href="../">../</a></li>
+{items}
+</ul>
+</body>
+</html>
+"""
+    with open(os.path.join(dir_path, "index.html"), "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(html)
+
+
+def write_repo_index(addon_ids):
+    """Friendly page for humans visiting /repo/, with real links into each
+    addon folder so Kodi's file manager can browse+install a zip from here."""
+    links = "\n".join(f'     <li><a href="{aid}/">{aid}/</a></li>' for aid in addon_ids)
+    html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FENtastic Plus - Kodi Repository</title>
 <style>
-  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#0d1117;
-    color:#e6edf3; max-width:720px; margin:60px auto; padding:0 20px; line-height:1.6; }
-  a { color:#17b2e7; } code { background:#010409; border:1px solid #21262d;
-    border-radius:6px; padding:2px 7px; }
-  .box { background:#161b22; border:1px solid #21262d; border-radius:10px; padding:16px 20px; }
+  body {{ font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#0d1117;
+    color:#e6edf3; max-width:720px; margin:60px auto; padding:0 20px; line-height:1.6; }}
+  a {{ color:#17b2e7; }} code {{ background:#010409; border:1px solid #21262d;
+    border-radius:6px; padding:2px 7px; }}
+  .box {{ background:#161b22; border:1px solid #21262d; border-radius:10px; padding:16px 20px; }}
 </style>
 </head>
 <body>
@@ -120,6 +151,10 @@ def write_repo_index():
   <p class="box"><code>https://jtcozart.github.io/fentastic-skin/repo/</code></p>
   <p>Full instructions are on the <a href="../">project page</a>. Repository index:
      <a href="addons.xml">addons.xml</a> (<a href="addons.xml.md5">md5</a>).</p>
+  <p>Addon folders (for Kodi's "install from zip file" browser):</p>
+  <ul>
+{links}
+  </ul>
 </body>
 </html>
 """
@@ -157,7 +192,9 @@ def main():
 
     print("Building repository index:")
     write_addons_xml([ROOT, repo_dir, helper_dir])
-    write_repo_index()
+    for out_dir in (skin_out, repo_out, helper_out):
+        write_dir_listing(out_dir)
+    write_repo_index([SKIN_ID, REPO_ID, HELPER_ID])
 
     print("Done. Kodi repository is in ./docs/repo")
 

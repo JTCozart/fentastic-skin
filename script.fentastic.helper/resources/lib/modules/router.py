@@ -1,22 +1,12 @@
 # -*- coding: utf-8 -*-
-import os
 import sys
 import xbmc, xbmcgui, xbmcvfs
 from urllib.parse import parse_qsl
 
 dialog = xbmcgui.Dialog()
 translatePath = xbmcvfs.translatePath
-home = translatePath('special://home/')
 
-#GUI Backup/restore paths
-gui_save_path = os.path.join(home, 'backups/')
-gui_save_user = os.path.join(gui_save_path, 'gui_bkup/')
 
-#FAVS Backup/restore paths
-fav_save_path = os.path.join(home, 'backups/')
-fav_save_user = os.path.join(fav_save_path, 'favs_bkup/')
-
-    
 def routing():
     params = dict(parse_qsl(sys.argv[1], keep_blank_values=True))
     _get = params.get
@@ -293,12 +283,12 @@ def routing():
     if mode == "backup_gui":
         from modules.backup_restore import backup_gui
 
-        return backup_gui(gui_save_user)
+        return backup_gui()
 
     if mode == "restore_gui":
         from modules.backup_restore import restore_gui
 
-        return restore_gui(gui_save_user)
+        return restore_gui()
 
     #Restore default GUI & Skin settings
     if mode == "restore_gui_dflt":
@@ -324,12 +314,12 @@ def routing():
     if mode == "backup_favs":
         from modules.backup_restore import backup_favs
 
-        return backup_favs(fav_save_user)
+        return backup_favs()
 
     if mode == "restore_favs":
         from modules.backup_restore import restore_favs
 
-        return restore_favs(fav_save_user)
+        return restore_favs()
 
     # Set Pre-Made Configurations
     if mode == "pre_config":

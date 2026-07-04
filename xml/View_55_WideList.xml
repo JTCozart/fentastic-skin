@@ -51,7 +51,7 @@
 							<align>right</align>
 							<aligny>center</aligny>
 							<font>font32_title</font>
-							<label>$INFO[ListItem.Rating]</label>
+							<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Rating]</label>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season)</visible>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -70,14 +70,14 @@
 						<control type="group">
 							<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
 							<control type="label">
-								<width>180</width>
+								<width>280</width>
 								<top>0</top>
 								<bottom>0</bottom>
 								<right>136</right>
 								<align>right</align>
 								<aligny>center</aligny>
 								<font>font32_title</font>
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+								<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							</control>
 							<control type="label">
 								<width>120</width>
@@ -120,7 +120,7 @@
 							<aligny>center</aligny>
 							<font>font32</font>
 							<textcolor>unfocused_text</textcolor>
-							<label>$INFO[ListItem.Rating]</label>
+							<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Rating]</label>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season)</visible>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -140,14 +140,14 @@
 					<control type="group">
 						<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
 							<control type="label">
-								<width>180</width>
+								<width>280</width>
 								<top>0</top>
 								<bottom>0</bottom>
 								<right>125</right>
 								<align>right</align>
 								<aligny>center</aligny>
 								<textcolor>unfocused_text</textcolor>
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+								<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							</control>
 							<control type="label">
 								<width>100</width>

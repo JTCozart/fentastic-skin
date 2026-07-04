@@ -171,11 +171,11 @@
 					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
 				</control>
 				<control type="label">
-					<left>-20</left>
+					<left>-120</left>
 					<top>684</top>
-					<width>435</width>
+					<width>535</width>
 					<height>24</height>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -187,6 +187,28 @@
 					<width>24</width>
 					<height>24</height>
 					<texture>lists/played-total.png</texture>
+					<align>right</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<visible>String.IsEqual(ListItem.DBtype,movie)</visible>
+				<control type="image">
+					<left>4</left>
+					<top>570</top>
+					<width>476</width>
+					<height>150</height>
+					<texture colordiffuse="CCFFFFFF">overlays/overlayfade51.png</texture>
+					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
+				</control>
+				<control type="label">
+					<left>-120</left>
+					<top>684</top>
+					<width>535</width>
+					<height>24</height>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]</label>
+					<font>font20_title</font>
+					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
 					<aligny>center</aligny>
 				</control>

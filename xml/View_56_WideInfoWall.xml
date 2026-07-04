@@ -310,10 +310,10 @@
 				</control>
 				<!-- 6 -->
 				<control type="label">
-          <left>130</left>
+          <left>40</left>
           <top>-158</top>
-					<width>154</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<width>244</width>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -341,10 +341,10 @@
 				</control>
 				<!-- 6 -->
 				<control type="label">
-          <left>130</left>
+          <left>40</left>
           <top>-158</top>
-					<width>154</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<width>244</width>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -358,6 +358,21 @@
 					<height>24</height>
 					<texture>lists/played-total.png</texture>
 					<visible>$PARAM[focused] + [Control.IsVisible(56) | Control.IsVisible(504)]</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+			</control>
+			<control type="group">
+				<visible>String.IsEqual(ListItem.DBtype,movie)</visible>
+				<top>320</top>
+				<control type="label">
+          <left>40</left>
+          <top>-158</top>
+					<width>244</width>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]</label>
+					<font>font20_title</font>
+					<shadowcolor>text_shadow</shadowcolor>
+					<align>right</align>
+					<visible>$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | Control.IsVisible(56) | Control.IsVisible(504)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>
@@ -608,10 +623,10 @@
 				</control>
 				<!-- 6 -->
 				<control type="label">
-          <left>229</left>
+          <left>139</left>
           <top>-102</top>
-					<width>154</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<width>244</width>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -639,10 +654,10 @@
 				</control>
 				<!-- 6 -->
 				<control type="label">
-          <left>232</left>
+          <left>142</left>
           <top>-102</top>
-					<width>154</width>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<width>244</width>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -656,6 +671,21 @@
 					<height>24</height>
 					<texture>lists/played-total.png</texture>
 					<visible>$PARAM[focused] + [Control.IsVisible(56) | Control.IsVisible(504)]</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+			</control>
+			<control type="group">
+				<visible>String.IsEqual(ListItem.DBtype,movie)</visible>
+				<top>320</top>
+				<control type="label">
+          <left>139</left>
+          <top>-102</top>
+					<width>244</width>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]</label>
+					<font>font20_title</font>
+					<shadowcolor>text_shadow</shadowcolor>
+					<align>right</align>
+					<visible>$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | Control.IsVisible(56) | Control.IsVisible(504)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>
