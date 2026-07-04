@@ -12,6 +12,7 @@ empty_ratings = {
     "imdbRating": "",
     "popularRating": "",
     "tmdbRating": "",
+    "digitalRelease": "",
 }
 
 

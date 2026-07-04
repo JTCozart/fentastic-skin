@@ -113,6 +113,7 @@
       <div class="card"><h3>Customizable widgets</h3><p>Movie, TV-show and episode widgets, incl. stacked category widgets.</p></div>
       <div class="card"><h3>Custom main menu</h3><p>Configurable movie and show menu items and paths.</p></div>
       <div class="card"><h3>Ratings &amp; InfoPanel</h3><p>Ratings for movies, shows, seasons and episodes, with an optional InfoPanel.</p></div>
+      <div class="card"><h3>Digital Release Dates</h3><p>Movies show a Digital Release date in the InfoPanel via a free MDbList key. <a href="#digital-release">Setup</a></p></div>
       <div class="card"><h3>Multi-search</h3><p>Search several categories at once, including Trakt lists.</p></div>
       <div class="card"><h3>Unwatched progress</h3><p>TV thumbnails show unwatched / total episodes at a glance.</p></div>
       <div class="card"><h3>Auto-updates</h3><p>Install the repository once and stay up to date automatically.</p></div>
@@ -145,6 +146,26 @@
       manually: <strong>Settings &rarr; Add-ons &rarr; My add-ons &rarr; Look and feel &rarr; FENtastic Plus
       Repository &rarr;</strong> open it (or right-click it and choose <strong>Check for updates</strong>). This
       pulls the current <code>addons.xml</code> immediately instead of waiting on Kodi's background check.</p>
+  </div>
+</section>
+
+<section id="digital-release">
+  <div class="wrap">
+    <h2>Ratings &amp; Digital Release Dates</h2>
+    <p class="note">Movie/show ratings and, for movies, a <strong>Digital Release</strong> date in the InfoPanel
+      are both powered by the free <a href="https://mdblist.com/">MDbList</a> API. This is optional - without
+      a key the skin works normally, it just won't show ratings or a digital release date.</p>
+    <ol class="steps">
+      <li>Create a free account at <a href="https://mdblist.com/">mdblist.com</a> and generate an API key from
+        your <a href="https://mdblist.com/preferences/">preferences page</a>. The free tier covers normal
+        skin use (1000 requests/day) and costs nothing.</li>
+      <li>In Kodi, open <strong>Configure skin&hellip; &rarr; Settings &rarr; Ratings/Trailers &rarr; Enter
+        MDbList API Key</strong> and paste it in.</li>
+      <li>That's it - ratings populate automatically as you browse, and movies with a known digital/streaming
+        release will show it right under the release year in the InfoPanel.</li>
+    </ol>
+    <p class="note">You can turn off individual rating sources (Metacritic, Rotten Tomatoes, IMDb, TMDb) from the
+      same settings tab if you only want the digital release date.</p>
   </div>
 </section>
 

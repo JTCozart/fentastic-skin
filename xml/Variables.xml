@@ -1072,13 +1072,20 @@
 	<!-- RATINGS INFOPANEL VARIABLES -->
 	<!-- Released -->
 	<variable name="RI_Year">
-		<value condition="!String.IsEmpty(ListItem.Year) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year]</value>
-		<value condition="!String.IsEmpty(ListItem.Year) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year,[B]Released: [/B]][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered(mm/dd/yyyy)]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered(mm/dd/yyyy),[B]Released: [/B]][CR]</value>
+		<value condition="String.IsEmpty(ListItem.Premiered) + !String.IsEmpty(ListItem.Year) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year]</value>
+		<value condition="String.IsEmpty(ListItem.Premiered) + !String.IsEmpty(ListItem.Year) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year,[B]Released: [/B]][CR]</value>
 	</variable>
 	<!-- Aired -->
 	<variable name="RI_Aired">
 		<value condition="!String.IsEmpty(ListItem.Premiered) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered]</value>
 		<value condition="!String.IsEmpty(ListItem.Premiered) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered,[B]Aired: [/B]][CR]</value>
+	</variable>
+	<!-- Digital Release (MDbList, movies only) -->
+	<variable name="RI_DigitalRelease">
+		<value condition="!String.IsEmpty(Window.Property(fentastic.digitalRelease)) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[Window.Property(fentastic.digitalRelease), • ]</value>
+		<value condition="!String.IsEmpty(Window.Property(fentastic.digitalRelease)) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[Window.Property(fentastic.digitalRelease),[B]Digital Release: [/B]][CR]</value>
 	</variable>
 	<!-- MPAA Rating -->
 	<variable name="RI_Mpaa_Season">
@@ -1136,13 +1143,20 @@
 	<!-- INFOPANEL VARIABLES -->
 	<!-- Released -->
 	<variable name="_Year">
-		<value condition="!String.IsEmpty(ListItem.Year) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year]</value>
-		<value condition="!String.IsEmpty(ListItem.Year) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year,[B]Released: [/B]][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered(mm/dd/yyyy)]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered(mm/dd/yyyy),[B]Released: [/B]][CR]</value>
+		<value condition="String.IsEmpty(ListItem.Premiered) + !String.IsEmpty(ListItem.Year) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year]</value>
+		<value condition="String.IsEmpty(ListItem.Premiered) + !String.IsEmpty(ListItem.Year) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year,[B]Released: [/B]][CR]</value>
 	</variable>
 	<!-- Aired -->
 	<variable name="_Aired">
 		<value condition="!String.IsEmpty(ListItem.Premiered) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered]</value>
 		<value condition="!String.IsEmpty(ListItem.Premiered) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered,[B]Aired: [/B]][CR]</value>
+	</variable>
+	<!-- Digital Release (MDbList, movies only) -->
+	<variable name="_DigitalRelease">
+		<value condition="!String.IsEmpty(Window.Property(fentastic.digitalRelease)) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[Window.Property(fentastic.digitalRelease), • ]</value>
+		<value condition="!String.IsEmpty(Window.Property(fentastic.digitalRelease)) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[Window.Property(fentastic.digitalRelease),[B]Digital Release: [/B]][CR]</value>
 	</variable>
 	<!-- MPAA Rating -->
 	<variable name="_Mpaa_Season">
@@ -1201,7 +1215,7 @@
 	</variable>
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Director]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[RI_Year]$VAR[RI_DigitalRelease]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Director]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Genre]$VAR[RI_RuntimeEpisodes]$VAR[RI_TotalSeasons]$VAR[RI_Status]$VAR[RI_Endsat]</value>
 		<!-- SEASONS -->
@@ -1219,7 +1233,7 @@
 		<!-- COLLECTIONS -->
 		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$VAR[_Plot][CR]</value>
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[_Year]$VAR[_Mpaa]$VAR[_Genre]$VAR[_Director]$VAR[_Runtime]$VAR[_Endsat][CR]$VAR[_Plot][CR]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[_Year]$VAR[_DigitalRelease]$VAR[_Mpaa]$VAR[_Genre]$VAR[_Director]$VAR[_Runtime]$VAR[_Endsat][CR]$VAR[_Plot][CR]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">$VAR[_Year]$VAR[_Mpaa]$VAR[_Network]$VAR[_Genre]$VAR[_RuntimeEpisodes]$VAR[_TotalSeasons]$VAR[_Status]$VAR[_Endsat][CR]$VAR[_Plot][CR]</value>
 		<!-- SEASONS -->

@@ -176,6 +176,10 @@ class MDbListAPI:
             if not trailer:
                 trailer = ""
             data["trailer"] = trailer
+        try:
+            data["digitalRelease"] = json_data.get("releaseddigital") or ""
+        except Exception:
+            data["digitalRelease"] = ""
         return data
 
 

@@ -4,6 +4,12 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.15[/B]
+- Added an optional Digital Release date for movies in the InfoPanel,
+  sourced from the free MDbList API (same key used for ratings).
+- Fixed the "Released" date in the InfoPanel showing only the year -
+  it now shows the full mm/dd/yyyy date for both movies and TV shows.
+
 [B]v1.0.14[/B]
 - Fixed the release date still showing on the InfoWall and WideInfoWall
   poster views (v1.0.13 only removed it from the plain Poster views).
