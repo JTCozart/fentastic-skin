@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Build the FENtastic Plus GitHub Pages site + Kodi repository.
+"""Build the FENtastic Plus Kodi repository into ./docs/repo.
 
-Outputs everything into ./_site :
+GitHub Pages for this repo serves the ./docs folder, so the Kodi repository is
+generated straight into ./docs/repo and committed. Kodi then reads it from
+https://jtcozart.github.io/fentastic-skin/repo/ :
 
-  _site/                     -> copy of ./docs (marketing landing page)
-  _site/repo/addons.xml      -> Kodi repository index
-  _site/repo/addons.xml.md5  -> checksum of addons.xml
-  _site/repo/<id>/<id>-<ver>.zip  -> installable add-on zips (skin + repository)
-  _site/repo/<id>/icon.png / fanart.jpg -> art for the Kodi repo browser
+  docs/repo/addons.xml          -> Kodi repository index
+  docs/repo/addons.xml.md5      -> checksum of addons.xml
+  docs/repo/<id>/<id>-<ver>.zip -> installable add-on zips (skin + repository)
+  docs/repo/<id>/icon.png|fanart.jpg -> art for the Kodi repo browser
+  docs/repo/index.html          -> friendly page for browser visitors
 
-The Kodi add-on <version> values are read from each add-on's addon.xml, so the
-skin version is single-sourced from the skin's addon.xml.
+The skin <version> is single-sourced from skin.fentastic's addon.xml.
+Run this before tagging a release, then commit ./docs/repo.
 """
 
 import hashlib
@@ -20,15 +22,15 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SITE = os.path.join(ROOT, "_site")
-REPO = os.path.join(SITE, "repo")
+DOCS = os.path.join(ROOT, "docs")
+REPO = os.path.join(DOCS, "repo")
 
 SKIN_ID = "skin.fentastic"
 REPO_ID = "repository.fentastic"
 
 # Top-level entries never shipped inside the skin zip.
 SKIN_EXCLUDE_TOP = {
-    ".git", ".github", ".gitignore", "docs", "_site",
+    ".git", ".github", ".gitignore", "docs",
     REPO_ID, "COPYING", "LICENSE-CC-BY-SA-4.0.txt",
 }
 
@@ -39,7 +41,7 @@ def addon_version(addon_dir):
 
 
 def zip_addon(addon_id, src_dir, exclude_top=None):
-    """Zip src_dir into _site/repo/<addon_id>/<addon_id>-<ver>.zip.
+    """Zip src_dir into docs/repo/<addon_id>/<addon_id>-<ver>.zip.
 
     Everything is placed under a top-level <addon_id>/ folder, as Kodi requires.
     """
@@ -94,12 +96,7 @@ def write_addons_xml(addon_dirs):
 
 
 def write_repo_index():
-    """Write a small index.html so the /repo/ directory URL doesn't 404.
-
-    GitHub Pages returns 404 for a directory with no index page. Kodi fetches
-    individual files (addons.xml, zips) so it never needs this, but a browser
-    visiting /repo/ should see a helpful page instead of a 404.
-    """
+    """Friendly page for humans visiting /repo/ (Kodi uses addons.xml directly)."""
     html = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,12 +113,11 @@ def write_repo_index():
 </head>
 <body>
   <h1>FENtastic Plus - Kodi Repository</h1>
-  <p>This is the add-on repository used by Kodi to install and auto-update the
+  <p>This is the add-on repository Kodi uses to install and auto-update the
      FENtastic Plus skin. Add it in Kodi via <strong>Settings &rarr; File manager
      &rarr; Add source</strong> with this URL:</p>
   <p class="box"><code>https://jtcozart.github.io/fentastic-skin/repo/</code></p>
-  <p>Full install instructions are on the
-     <a href="../">project page</a>. Repository index:
+  <p>Full instructions are on the <a href="../">project page</a>. Repository index:
      <a href="addons.xml">addons.xml</a> (<a href="addons.xml.md5">md5</a>).</p>
 </body>
 </html>
@@ -131,31 +127,22 @@ def write_repo_index():
 
 
 def main():
-    if os.path.isdir(SITE):
-        shutil.rmtree(SITE)
+    # Rebuild docs/repo from scratch so stale versions don't linger.
+    if os.path.isdir(REPO):
+        shutil.rmtree(REPO)
     os.makedirs(REPO, exist_ok=True)
 
-    # 1. Landing page: copy ./docs -> _site (so Pages root is the marketing page).
-    docs = os.path.join(ROOT, "docs")
-    if os.path.isdir(docs):
-        for entry in os.listdir(docs):
-            src = os.path.join(docs, entry)
-            dst = os.path.join(SITE, entry)
-            if os.path.isdir(src):
-                shutil.copytree(src, dst)
-            else:
-                shutil.copy2(src, dst)
-    # Disable Jekyll processing on Pages.
-    open(os.path.join(SITE, ".nojekyll"), "w").close()
+    # GitHub Pages (branch /docs) runs Jekyll by default; disable it so nothing
+    # in docs/ gets mangled or skipped.
+    open(os.path.join(DOCS, ".nojekyll"), "w").close()
 
-    # 2. Repository add-on needs an icon: reuse the skin icon.
+    # The repository add-on needs an icon: reuse the skin icon.
     repo_dir = os.path.join(ROOT, REPO_ID)
     shutil.copy2(
         os.path.join(ROOT, "resources", "icon.png"),
         os.path.join(repo_dir, "icon.png"),
     )
 
-    # 3. Package add-ons and copy their art into the repo tree.
     print("Packaging add-ons:")
     _, skin_out = zip_addon(SKIN_ID, ROOT, exclude_top=SKIN_EXCLUDE_TOP)
     copy_art(ROOT, skin_out)
@@ -163,12 +150,11 @@ def main():
     _, repo_out = zip_addon(REPO_ID, repo_dir)
     shutil.copy2(os.path.join(repo_dir, "icon.png"), os.path.join(repo_out, "icon.png"))
 
-    # 4. Repository index.
     print("Building repository index:")
     write_addons_xml([ROOT, repo_dir])
     write_repo_index()
 
-    print("Done. Site is in ./_site")
+    print("Done. Kodi repository is in ./docs/repo")
 
 
 if __name__ == "__main__":

@@ -1,77 +1,44 @@
-name: Package and Release
+name: Release
 
-# Two things happen here:
-#   * On a version tag (v*): package the skin + repository add-on and publish a
-#     GitHub Release with the zips attached.
-#   * On push to the default branch (or manual run): build the landing page +
-#     Kodi repository and deploy them to GitHub Pages.
+# GitHub Pages serves the ./docs folder, and the Kodi repository lives in
+# ./docs/repo (committed). Publishing therefore works like this:
 #
-# Pages is deployed from the default branch (not the tag) so it satisfies the
-# github-pages environment's default "deploy from default branch" protection
-# rule. A normal release = commit the version bump to master, then push the tag;
-# the master push deploys Pages and the tag push cuts the Release.
+#   1. python3 .github/scripts/build_repo.py   # regenerate ./docs/repo
+#   2. commit ./docs/repo + the addon.xml version bump
+#   3. git tag vX.Y.Z && git push --tags
+#
+# Pushing to master makes Pages serve the updated repo automatically. This
+# workflow runs on the tag: it verifies the committed repo matches the version
+# and publishes a GitHub Release with the zips.
 
 on:
   push:
-    branches:
-      - master
     tags:
       - "v*"
-  workflow_dispatch:
 
 permissions:
-  contents: write   # create the GitHub Release
-  pages: write      # deploy to GitHub Pages
-  id-token: write   # required by actions/deploy-pages
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  contents: write
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      - name: Build site and Kodi repository
-        run: python3 .github/scripts/build_repo.py
-
-      - name: Configure GitHub Pages
-        if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Upload GitHub Pages artifact
-        if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+      - name: Verify committed repo matches the skin version
+        run: |
+          VER=$(python3 -c "import xml.etree.ElementTree as ET; print(ET.parse('addon.xml').getroot().get('version'))")
+          echo "skin version: $VER"
+          if [ ! -f "docs/repo/skin.fentastic/skin.fentastic-$VER.zip" ]; then
+            echo "::error::docs/repo/skin.fentastic/skin.fentastic-$VER.zip is missing."
+            echo "::error::Run 'python3 .github/scripts/build_repo.py' and commit ./docs/repo before tagging."
+            exit 1
+          fi
 
       - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           files: |
-            _site/repo/skin.fentastic/skin.fentastic-*.zip
-            _site/repo/repository.fentastic/repository.fentastic-*.zip
-
-  deploy:
-    needs: build
-    # Only deploy Pages from the default branch (or a manual run) - tags are
-    # blocked by the github-pages environment protection rule.
-    if: github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+            docs/repo/skin.fentastic/skin.fentastic-*.zip
+            docs/repo/repository.fentastic/repository.fentastic-*.zip
