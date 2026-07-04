@@ -4,6 +4,10 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.8[/B]
+- Docs: point the required-helper link to the upstream download.
+- Marketing page: add maintainer links (linktr.ee/jtczrt) to the footer.
+
 [B]v1.0.7[/B]
 - Docs: state the required, version-locked helper add-on
   (script.fentastic.helper 100.6.25g) that must be installed first.

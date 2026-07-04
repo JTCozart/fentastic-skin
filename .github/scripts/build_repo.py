@@ -93,6 +93,43 @@ def write_addons_xml(addon_dirs):
     print(f"  wrote addons.xml ({len(content)} bytes) md5={digest}")
 
 
+def write_repo_index():
+    """Write a small index.html so the /repo/ directory URL doesn't 404.
+
+    GitHub Pages returns 404 for a directory with no index page. Kodi fetches
+    individual files (addons.xml, zips) so it never needs this, but a browser
+    visiting /repo/ should see a helpful page instead of a 404.
+    """
+    html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FENtastic Plus - Kodi Repository</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#0d1117;
+    color:#e6edf3; max-width:720px; margin:60px auto; padding:0 20px; line-height:1.6; }
+  a { color:#17b2e7; } code { background:#010409; border:1px solid #21262d;
+    border-radius:6px; padding:2px 7px; }
+  .box { background:#161b22; border:1px solid #21262d; border-radius:10px; padding:16px 20px; }
+</style>
+</head>
+<body>
+  <h1>FENtastic Plus - Kodi Repository</h1>
+  <p>This is the add-on repository used by Kodi to install and auto-update the
+     FENtastic Plus skin. Add it in Kodi via <strong>Settings &rarr; File manager
+     &rarr; Add source</strong> with this URL:</p>
+  <p class="box"><code>https://jtcozart.github.io/fentastic-skin/repo/</code></p>
+  <p>Full install instructions are on the
+     <a href="../">project page</a>. Repository index:
+     <a href="addons.xml">addons.xml</a> (<a href="addons.xml.md5">md5</a>).</p>
+</body>
+</html>
+"""
+    with open(os.path.join(REPO, "index.html"), "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(html)
+
+
 def main():
     if os.path.isdir(SITE):
         shutil.rmtree(SITE)
@@ -129,6 +166,7 @@ def main():
     # 4. Repository index.
     print("Building repository index:")
     write_addons_xml([ROOT, repo_dir])
+    write_repo_index()
 
     print("Done. Site is in ./_site")
 
