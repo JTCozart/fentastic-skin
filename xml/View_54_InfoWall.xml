@@ -232,7 +232,7 @@
 				<left>40</left>
 				<top>171</top>
 				<width>253</width>
-				<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+				<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 				<font>font20_title</font>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>right</align>
@@ -515,7 +515,7 @@
 				<left>70</left>
 				<top>228</top>
 				<width>319</width>
-				<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+				<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 				<font>font20_title</font>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>right</align>
@@ -896,7 +896,7 @@
 					<left>-90</left>
 					<top>-59</top>
 					<width>258</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -926,7 +926,7 @@
 					<left>-90</left>
 					<top>-59</top>
 					<width>258</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -1189,7 +1189,7 @@
 					<left>-50</left>
 					<top>-4</top>
 					<width>258</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -1219,7 +1219,7 @@
 					<left>-50</left>
 					<top>-4</top>
 					<width>258</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>

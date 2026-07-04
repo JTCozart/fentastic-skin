@@ -4,6 +4,16 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.12[/B]
+- Install docs simplified to a single, reliable path: download the repository
+  zip from the Releases page and use Kodi's "Install from zip file" directly.
+  Dropped the File manager / repo-URL browsing option - Kodi's HTTP directory
+  browsing and repository checksum fetch against it proved unreliable in
+  testing (0-byte file sizes shown in File manager; repository checksum
+  fetches timing out on some networks).
+- TV show thumbnails now show watched/total episode count instead of
+  unwatched/total.
+
 [B]v1.0.10[/B]
 - Publish script.fentastic.helper from this repository's Kodi repo, so
   installing via the repository (Option B) now auto-installs/updates the

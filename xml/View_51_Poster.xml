@@ -175,7 +175,7 @@
 					<top>684</top>
 					<width>535</width>
 					<height>24</height>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $INFO[ListItem.Property(UnWatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
