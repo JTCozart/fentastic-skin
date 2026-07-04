@@ -313,7 +313,7 @@
           <left>40</left>
           <top>-158</top>
 					<width>244</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
+					<label>$VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -344,7 +344,7 @@
           <left>40</left>
           <top>-158</top>
 					<width>244</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
+					<label>$VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -358,21 +358,6 @@
 					<height>24</height>
 					<texture>lists/played-total.png</texture>
 					<visible>$PARAM[focused] + [Control.IsVisible(56) | Control.IsVisible(504)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
-			</control>
-			<control type="group">
-				<visible>String.IsEqual(ListItem.DBtype,movie)</visible>
-				<top>320</top>
-				<control type="label">
-          <left>40</left>
-          <top>-158</top>
-					<width>244</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]</label>
-					<font>font20_title</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>right</align>
-					<visible>$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | Control.IsVisible(56) | Control.IsVisible(504)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>
@@ -626,7 +611,7 @@
           <left>139</left>
           <top>-102</top>
 					<width>244</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
+					<label>$VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -657,7 +642,7 @@
           <left>142</left>
           <top>-102</top>
 					<width>244</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
+					<label>$VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -671,21 +656,6 @@
 					<height>24</height>
 					<texture>lists/played-total.png</texture>
 					<visible>$PARAM[focused] + [Control.IsVisible(56) | Control.IsVisible(504)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
-			</control>
-			<control type="group">
-				<visible>String.IsEqual(ListItem.DBtype,movie)</visible>
-				<top>320</top>
-				<control type="label">
-          <left>139</left>
-          <top>-102</top>
-					<width>244</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]</label>
-					<font>font20_title</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>right</align>
-					<visible>$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | Control.IsVisible(56) | Control.IsVisible(504)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>
