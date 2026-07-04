@@ -6,30 +6,32 @@ name: Release
 #   1. python3 .github/scripts/build_repo.py   # regenerate ./docs/repo
 #   2. commit ./docs/repo + the addon.xml version bump
 #   3. git push origin master
-#   4. wait ~2 minutes for the "pages build and deployment" run to finish
-#   5. git tag vX.Y.Z && git push origin vX.Y.Z
+#   4. git tag vX.Y.Z && git push origin vX.Y.Z
 #
-# Pushing to master makes Pages serve the updated repo automatically - that's
-# GitHub's own auto-generated "pages build and deployment" workflow, not one
-# we control here, so it can't be given a delay step directly. Pushing the
-# tag right after master races that in-flight Pages deploy and reliably fails
-# it (it currently self-retries and recovers, but don't rely on that): the
-# 2-minute gap above is required so the tag push happens after Pages is done,
-# not concurrently with it.
+# This workflow deploys Pages itself (on push to master) instead of relying
+# on GitHub's auto-generated "pages build and deployment" workflow - that one
+# isn't ours to edit and its first deploy attempt was failing on essentially
+# every release, only succeeding on a manual re-run. The deploy step below
+# retries once in-workflow to absorb that same flakiness automatically.
 #
-# This workflow runs on the tag: it verifies the committed repo matches the
+# The release job runs on the tag: it verifies the committed repo matches the
 # version and publishes a GitHub Release with the zips.
 
 on:
   push:
+    branches:
+      - master
     tags:
       - "v*"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   release:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -59,3 +61,30 @@ jobs:
             docs/repo/skin.fentastic/skin.fentastic-*.zip
             docs/repo/repository.fentastic/repository.fentastic-*.zip
             docs/repo/script.fentastic.helper/script.fentastic.helper-*.zip
+
+  deploy-pages:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deploy1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Deploy to GitHub Pages (retry)
+        if: steps.deploy1.outcome == 'failure'
+        id: deploy2
+        uses: actions/deploy-pages@v4
