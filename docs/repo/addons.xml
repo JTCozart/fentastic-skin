@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="skin.fentastic" version="1.0.12" name="FENtastic Plus"
+<addon id="skin.fentastic" version="1.0.13" name="FENtastic Plus"
 	provider-name="JTCozart (fork of Ivar Brandt, Zaxxon709)">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />

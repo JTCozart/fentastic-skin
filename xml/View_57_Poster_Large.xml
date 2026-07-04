@@ -93,7 +93,7 @@
 					<left>87</left>
 					<top>280</top>
 					<width>242</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</label>
+					<label>$VAR[WatchedTotalEpisodesVar]</label>
 					<font>font20_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
@@ -116,15 +116,6 @@
 					<height>60</height>
 					<texture colordiffuse="CCFFFFFF">overlays/overlayfade.png</texture>
 					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-				</control>
-				<control type="label">
-					<left>87</left>
-					<top>280</top>
-					<width>242</width>
-					<label>$INFO[ListItem.Premiered(mm/dd/yyyy)]</label>
-					<font>font20_title</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>right</align>
 				</control>
 			</control>
 			<control type="image">

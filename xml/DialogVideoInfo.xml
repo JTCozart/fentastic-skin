@@ -197,8 +197,8 @@
 					</include>
 					<include content="InfoDialogMetadata">
 						<param name="control_id" value="154" />
-						<param name="label" value="$VAR[FirstAiredLabel]: $INFO[ListItem.Premiered]" />
-						<param name="altlabel" value="$VAR[FirstAiredLabel]: $INFO[ListItem.Premiered]" />
+						<param name="label" value="$VAR[FirstAiredLabel]: $INFO[ListItem.Premiered(mm/dd/yyyy)]" />
+						<param name="altlabel" value="$VAR[FirstAiredLabel]: $INFO[ListItem.Premiered(mm/dd/yyyy)]" />
 						<param name="visible" value="!String.IsEmpty(ListItem.Premiered)" />
 					</include>
 					<include content="InfoDialogMetadata">

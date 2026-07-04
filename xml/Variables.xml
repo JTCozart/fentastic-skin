@@ -97,7 +97,8 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="WatchedTotalEpisodesVar">
-		<value condition="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</value>
+		<value condition="String.IsEmpty(ListItem.Property(WatchedEpisodes))">0$INFO[ListItem.Property(TotalEpisodes), / ,]</value>
+		<value>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</value>
 	</variable>
 	<variable name="ListLabel2Var">
 		<value condition="String.IsEmpty(Container.PluginName) + Container.Content(tvshows) + Container.SortMethod(29)">$INFO[ListItem.Premiered(mm/dd/yyyy)]  $VAR[WatchedTotalEpisodesVar]</value>

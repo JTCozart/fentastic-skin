@@ -4,6 +4,12 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.13[/B]
+- Movie and TV posters no longer show the release date (still shown as the
+  full date when you click into a title's details).
+- TV shows always show a watched/total episode count, even "0/total" if
+  unstarted.
+
 [B]v1.0.12[/B]
 - Install docs simplified to a single, reliable path: download the repository
   zip from the Releases page and use Kodi's "Install from zip file" directly.
