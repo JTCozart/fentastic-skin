@@ -33,30 +33,30 @@ Designed for use with the FEN family of add-ons (Fen Light, Red Light, The Gears
 
 ## Installation
 
-> **Required first:** this skin depends on the `script.fentastic.helper` add-on and is **version-locked** to [`script.fentastic.helper-100.6.25g.zip`](https://github.com/Zaxxon709/fentasticplus/blob/main/script.fentastic.helper-100.6.25g.zip). Install that exact helper version **before** the skin, or it will not work.
+> This skin depends on the `script.fentastic.helper` add-on. It's now built and published from this same repository, so Option B below installs it automatically. If you use Option A (plain zip), grab the helper zip too — see the note under that option.
 
-### Option A — Repository (recommended, enables auto-updates)
+### Option A — Direct zip (easiest, no source needed)
 
-Installing the repository add-on lets Kodi keep the skin up to date automatically.
+1. Download the latest `skin.fentastic-x.x.x.zip` **and** `script.fentastic.helper-x.x.x.zip` from the [Releases page](https://github.com/JTCozart/fentastic-skin/releases/latest) onto the device running Kodi.
+2. In Kodi: **Settings → Add-ons → Install from zip file**, and install the helper zip first, then the skin zip.
 
-1. In Kodi: **Settings → File manager → Add source**, and enter:
+> If Kodi blocks the install, enable **Settings → System → Add-ons → Unknown sources** (on some builds this sits directly under **Settings → Add-ons**). This method has no auto-updates, so repeat it for future releases.
+
+### Option B — Repository (enables auto-updates)
+
+1. In Kodi: **Settings → Add-ons → Install from zip file**. In the browser dialog that opens, look for **Add network location** (shown as an icon at the top of the list, or in that dialog's context/options menu) and enter:
 
    ```
    https://jtcozart.github.io/fentastic-skin/repo/
    ```
 
    Give it a name such as `FENtastic Plus`.
-2. **Settings → Add-ons → Install from zip file →** `FENtastic Plus` → `repository.fentastic` → `repository.fentastic-x.x.x.zip`.
-3. **Install from repository → FENtastic Plus Repository → Look and feel → Skin → FENtastic Plus → Install.**
 
-Kodi will now auto-update the skin whenever a new version is published.
+   > Kodi has moved this "add a network source" control around across versions and skins. If you don't see it inside the zip-install browser, look instead for a standalone **File manager** entry from the Kodi home screen — on some builds it's no longer nested inside a settings category like System.
+2. Back in **Install from zip file →** `FENtastic Plus` → `repository.fentastic` → `repository.fentastic-x.x.x.zip`.
+3. **Install from repository → FENtastic Plus Repository → Look and feel → Skin → FENtastic Plus → Install.** Kodi resolves the `script.fentastic.helper` dependency from the same repository automatically — no separate helper install needed.
 
-### Option B — Direct zip (manual, no auto-updates)
-
-1. Download the latest `skin.fentastic-x.x.x.zip` from the [Releases page](https://github.com/JTCozart/fentastic-skin/releases/latest).
-2. In Kodi: **Settings → Add-ons → Install from zip file** and select the downloaded file.
-
-> If Kodi blocks the install, enable **Settings → System → Add-ons → Unknown sources**.
+Once installed this way, Kodi will auto-update both the skin and the helper whenever a new version is published.
 
 ---
 

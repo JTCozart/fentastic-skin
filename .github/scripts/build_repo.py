@@ -27,11 +27,12 @@ REPO = os.path.join(DOCS, "repo")
 
 SKIN_ID = "skin.fentastic"
 REPO_ID = "repository.fentastic"
+HELPER_ID = "script.fentastic.helper"
 
 # Top-level entries never shipped inside the skin zip.
 SKIN_EXCLUDE_TOP = {
     ".git", ".github", ".gitignore", "docs",
-    REPO_ID, "COPYING", "LICENSE-CC-BY-SA-4.0.txt",
+    REPO_ID, HELPER_ID, "COPYING", "LICENSE-CC-BY-SA-4.0.txt",
 }
 
 
@@ -150,8 +151,12 @@ def main():
     _, repo_out = zip_addon(REPO_ID, repo_dir)
     shutil.copy2(os.path.join(repo_dir, "icon.png"), os.path.join(repo_out, "icon.png"))
 
+    helper_dir = os.path.join(ROOT, HELPER_ID)
+    _, helper_out = zip_addon(HELPER_ID, helper_dir)
+    copy_art(helper_dir, helper_out)
+
     print("Building repository index:")
-    write_addons_xml([ROOT, repo_dir])
+    write_addons_xml([ROOT, repo_dir, helper_dir])
     write_repo_index()
 
     print("Done. Kodi repository is in ./docs/repo")

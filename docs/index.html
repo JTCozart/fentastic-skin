@@ -126,30 +126,31 @@
     <h2>Install</h2>
 
     <div class="disclosure" style="margin-bottom:24px">
-      <strong>Required first:</strong> this skin depends on the <code>script.fentastic.helper</code>
-      add-on and is <strong>version-locked</strong> to
-      <a href="https://github.com/Zaxxon709/fentasticplus/blob/main/script.fentastic.helper-100.6.25g.zip"><code>script.fentastic.helper-100.6.25g.zip</code></a>.
-      Install that exact helper version <em>before</em> the skin, or it will not work.
+      This skin depends on the <code>script.fentastic.helper</code> add-on. It's now built and
+      published from this same repository, so <strong>Option B</strong> below installs it
+      automatically. If you use Option A (plain zip), grab the helper zip too - see the note there.
     </div>
 
-    <h3>Option A - Repository (recommended, auto-updates)</h3>
+    <h3>Option A - Direct zip (easiest, no source needed)</h3>
     <ol class="steps">
-      <li>In Kodi go to <strong>Settings &rarr; File manager &rarr; Add source</strong> and enter this URL:
+      <li>Download the latest <code>skin.fentastic-x.x.x.zip</code> <strong>and</strong>
+        <code>script.fentastic.helper-x.x.x.zip</code> from the
+        <a href="https://github.com/JTCozart/fentastic-skin/releases/latest">Releases page</a> onto the device running Kodi.</li>
+      <li>In Kodi: <strong>Settings &rarr; Add-ons &rarr; Install from zip file</strong>, and install the helper zip first, then the skin zip.</li>
+    </ol>
+    <p class="note">If Kodi blocks the install, enable <strong>Settings &rarr; System &rarr; Add-ons &rarr; Unknown sources</strong> (on some builds this is under <strong>Settings &rarr; Add-ons</strong> directly). This method does not auto-update, so repeat it for future releases.</p>
+
+    <h3 style="margin-top:34px">Option B - Repository (auto-updates)</h3>
+    <ol class="steps">
+      <li>In Kodi go to <strong>Settings &rarr; Add-ons &rarr; Install from zip file</strong>. In the browser dialog that opens, look for <strong>Add network location</strong> (sometimes shown as a folder icon at the top of the list, or in that dialog's context/options menu) and enter this URL:
         <div class="copybox"><code>https://jtcozart.github.io/fentastic-skin/repo/</code></div>
         Name it <code>FENtastic Plus</code>.
+        <br><span class="note">Kodi has moved this "add a network source" control around across versions and skins - if you don't see it here, look for a standalone <strong>File manager</strong> entry from the Kodi home screen (older/simplified settings pages hide it once you're already inside a category like System).</span>
       </li>
-      <li><strong>Settings &rarr; Add-ons &rarr; Install from zip file &rarr;</strong> <code>FENtastic Plus</code> &rarr; <code>repository.fentastic</code> &rarr; <code>repository.fentastic-x.x.x.zip</code>.</li>
-      <li><strong>Install from repository &rarr; FENtastic Plus Repository &rarr; Look and feel &rarr; Skin &rarr; FENtastic Plus &rarr; Install.</strong></li>
+      <li>Back in <strong>Install from zip file &rarr;</strong> <code>FENtastic Plus</code> &rarr; <code>repository.fentastic</code> &rarr; <code>repository.fentastic-x.x.x.zip</code>.</li>
+      <li><strong>Install from repository &rarr; FENtastic Plus Repository &rarr; Look and feel &rarr; Skin &rarr; FENtastic Plus &rarr; Install.</strong> Kodi resolves the <code>script.fentastic.helper</code> dependency from the same repository automatically - no separate helper install needed.</li>
     </ol>
-    <p class="note">Kodi will now keep the skin updated automatically whenever a new version is released.</p>
-
-    <h3 style="margin-top:34px">Option B - Direct zip (manual)</h3>
-    <ol class="steps">
-      <li>Download the latest <code>skin.fentastic-x.x.x.zip</code> from the
-        <a href="https://github.com/JTCozart/fentastic-skin/releases/latest">Releases page</a>.</li>
-      <li>In Kodi: <strong>Settings &rarr; Add-ons &rarr; Install from zip file</strong> and select the downloaded file.</li>
-    </ol>
-    <p class="note">If Kodi blocks the install, enable <strong>Settings &rarr; System &rarr; Add-ons &rarr; Unknown sources</strong>. This method does not auto-update.</p>
+    <p class="note">Once installed this way, Kodi will keep both the skin and the helper updated automatically whenever a new version is released.</p>
   </div>
 </section>
 

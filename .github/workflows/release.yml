@@ -34,6 +34,13 @@ jobs:
             echo "::error::Run 'python3 .github/scripts/build_repo.py' and commit ./docs/repo before tagging."
             exit 1
           fi
+          HELPER_VER=$(python3 -c "import xml.etree.ElementTree as ET; print(ET.parse('script.fentastic.helper/addon.xml').getroot().get('version'))")
+          echo "helper version: $HELPER_VER"
+          if [ ! -f "docs/repo/script.fentastic.helper/script.fentastic.helper-$HELPER_VER.zip" ]; then
+            echo "::error::docs/repo/script.fentastic.helper/script.fentastic.helper-$HELPER_VER.zip is missing."
+            echo "::error::Run 'python3 .github/scripts/build_repo.py' and commit ./docs/repo before tagging."
+            exit 1
+          fi
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -42,3 +49,4 @@ jobs:
           files: |
             docs/repo/skin.fentastic/skin.fentastic-*.zip
             docs/repo/repository.fentastic/repository.fentastic-*.zip
+            docs/repo/script.fentastic.helper/script.fentastic.helper-*.zip

@@ -4,6 +4,11 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.10[/B]
+- Publish script.fentastic.helper from this repository's Kodi repo, so
+  installing via the repository (Option B) now auto-installs/updates the
+  required helper add-on instead of needing a separate manual zip.
+
 [B]v1.0.9[/B]
 - Serve the Kodi repository from the GitHub Pages /docs folder so
   https://jtcozart.github.io/fentastic-skin/repo/ resolves correctly.
