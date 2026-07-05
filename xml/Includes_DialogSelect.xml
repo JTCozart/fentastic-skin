@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="DefaultDialogSelectLayout">
+		<include>ContextFade</include>
+		<control type="button">
+			<left>-1920</left>
+			<top>-1080</top>
+			<width>5760</width>
+			<height>3240</height>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
 		<control type="group">
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
 			<height>750</height>
 			<width>1220</width>
-			<include content="DialogBackgroundCommons">
-				<param name="width" value="1220" />
-				<param name="height" value="775" />
-				<param name="header_label" value="" />
-				<param name="header_id" value="1" />
-				<param name="diffusetexture" value="masks/landscape-502.png" />
-			</include>
+			<control type="label" id="1">
+				<posx>0</posx>
+				<top>20</top>
+				<width>1220</width>
+				<height>70</height>
+				<font>font32_title</font>
+				<label></label>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>unfocused_text</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
 			<control type="list" id="3">
 				<left>20</left>
 				<top>100</top>

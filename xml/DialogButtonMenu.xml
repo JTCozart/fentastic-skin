@@ -3,18 +3,31 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
+		<include>ContextFade</include>
+		<control type="button">
+			<left>-1920</left>
+			<top>-1080</top>
+			<width>5760</width>
+			<height>3240</height>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<width>600</width>
 			<centertop>50%</centertop>
 			<height>700</height>
-			<include content="DialogBackgroundCommons">
-				<param name="width" value="600" />
-				<param name="height" value="500" />
-				<param name="header_label" value="$LOCALIZE[31072]" />
-				<param name="header_id" value="2" />
-				<param name="diffusetexture" value="masks/dialog-bg-squareish.png" />
-			</include>
+			<control type="label" id="2">
+				<top>0</top>
+				<width>600</width>
+				<height>70</height>
+				<font>font32_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31072]</label>
+			</control>
 			<control type="panel" id="9000">
 				<include>ButtonMenuList_pwr</include>
 				<content>
