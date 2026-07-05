@@ -4,6 +4,11 @@ This is a community fork maintained by JTCozart, based on FENtastic Plus by
 Ivar Brandt and Zaxxon709 (an Estuary MOD). Fork releases use major.minor.build
 versioning.
 
+[B]v1.0.16[/B]
+- Power/system menu and select dialogs (e.g. PVR and favourites pickers) now
+  match the context menu's look: a dimmed backdrop with floating buttons
+  instead of a bordered panel.
+
 [B]v1.0.15[/B]
 - Added an optional Digital Release date for movies in the InfoPanel,
   sourced from the free MDbList API (same key used for ratings).
